@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Calendar, Clock, MapPin, Sparkles, Crown } from "lucide-react";
+import { Calendar, Clock, MapPin, Sparkles, Crown, Gift, Copy, Check } from "lucide-react";
 import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 
 import { motion } from "framer-motion";
@@ -133,9 +133,19 @@ export default function DelicateEventDetails() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [copied, setCopied] = useState(false);
 
-  // ✅ Usar configuración centralizada
-  const { fechaEvento, horaEvento, lugar, direccion, colores } =
-    useQuinceaneraConfig();
+  // ✅ Usar configuración centralizada con propiedades individuales
+  const { 
+    fechaEvento, 
+    horaEvento, 
+    lugar, 
+    direccion, 
+    colores,
+    mostrarRegalos,
+    alias,
+    nombreCuentaBancaria,
+    mensajeRegalos,
+    nombre 
+  } = useQuinceaneraConfig();
 
   // Función para copiar el alias al portapapeles
   const handleCopyAlias = async () => {
@@ -326,6 +336,133 @@ export default function DelicateEventDetails() {
             );
           })}
         </div>
+
+        {/* 🎁 Sección de Regalos */}
+        {mostrarRegalos && alias && (
+          <div className="mt-8">
+            <div 
+              className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+              style={{
+                border: `1px solid ${colores.primario[200]}80`,
+              }}
+            >
+              {/* Header con icono */}
+              <div className="text-center mb-4">
+                <div className="relative inline-block mb-2">
+                  <div
+                    className="absolute inset-0 blur-lg rounded-full"
+                    style={{
+                      background: `linear-gradient(to right, ${colores.primario[300]}60, ${colores.terciario[300]}60)`,
+                    }}
+                  />
+                  <Gift
+                    className="relative w-8 h-8 mx-auto"
+                    style={{ color: colores.primario[600] }}
+                  />
+                </div>
+
+                <h3
+                  className="font-Emilys_Candy text-xl font-semibold mb-2"
+                  style={{
+                    background: `linear-gradient(to right, ${colores.primario[700]}, ${colores.terciario[600]})`,
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  Lluvia de Sobres
+                </h3>
+
+                <div
+                  className="w-12 h-px mx-auto rounded-full mb-3"
+                  style={{
+                    background: `linear-gradient(to right, ${colores.primario[400]}, ${colores.terciario[400]})`,
+                  }}
+                />
+              </div>
+
+              {/* Mensaje personalizado */}
+              <p
+                className="text-center text-sm md:text-base italic mb-4 px-4"
+                style={{ color: colores.primario[700] }}
+              >
+                {mensajeRegalos || 
+                  `Si querés hacerme un regalo, tu presencia es el mejor obsequio. Pero si preferís contribuir de otra forma, acá te dejo mis datos`}
+              </p>
+
+              {/* Alias con botón para copiar */}
+              <div className="max-w-md mx-auto">
+                <div
+                  className="bg-white/80 rounded-xl p-4 flex items-center justify-between gap-3 shadow-sm"
+                  style={{
+                    border: `1.5px solid ${colores.primario[300]}`,
+                  }}
+                >
+                  <div className="flex-1 text-center">
+                    {nombreCuentaBancaria && (
+                      <p
+                        className="text-xs font-medium mb-1"
+                        style={{ color: colores.primario[600] }}
+                      >
+                        {nombreCuentaBancaria}
+                      </p>
+                    )}
+                    <p
+                      className="font-mono text-base md:text-lg font-bold tracking-wide"
+                      style={{ color: colores.primario[800] }}
+                    >
+                      {alias}
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={handleCopyAlias}
+                    className="p-2 rounded-lg hover:scale-110 transition-all duration-200 flex-shrink-0"
+                    style={{
+                      background: `linear-gradient(to bottom right, ${colores.primario[500]}, ${colores.terciario[500]})`,
+                    }}
+                    title="Copiar alias"
+                  >
+                    {copied ? (
+                      <Check className="w-5 h-5 text-white" />
+                    ) : (
+                      <Copy className="w-5 h-5 text-white" />
+                    )}
+                  </button>
+                </div>
+
+                {/* Mensaje de copiado */}
+                {copied && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="text-center text-sm font-medium mt-2"
+                    style={{ color: colores.primario[600] }}
+                  >
+                    ✓ Alias copiado al portapapeles
+                  </motion.p>
+                )}
+              </div>
+
+              {/* Decoración inferior */}
+              <div className="flex justify-center gap-2 mt-4">
+                <Sparkles
+                  className="w-4 h-4 animate-pulse"
+                  style={{ color: colores.primario[400] }}
+                />
+                <Sparkles
+                  className="w-5 h-5"
+                  style={{ color: colores.primario[500] }}
+                />
+                <Sparkles
+                  className="w-4 h-4 animate-pulse"
+                  style={{ color: colores.primario[400] }}
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Estilos adicionales para animaciones suaves */}

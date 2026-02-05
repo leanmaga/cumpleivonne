@@ -26,13 +26,13 @@ export const clientConfig = {
   // 📍 UBICACIÓN
   ubicacion: {
     nombreLugar: "La Catana",
-    direccion: "A la altura del km 31 y ½ de la Ruta 3. (a unas cuadras de Padre Mario)",
+    direccion: "Hidalgo 73",
     ciudad: "González Catán",
     provincia: "Buenos Aires",
     pais: "Argentina",
     // URLs de mapas (se generan automáticamente pero puedes personalizarlas)
-    googleMapsUrl: "google.com/maps/dir//-34.780673,-58.624208/@-34.780673,-58.624208,15z", // Déjalo vacío para que se genere automáticamente
-    wazeUrl: "https://waze.com/https://ul.waze.com/ul?place=ChIJKQTTQZPEvJUR_Z_JQzXQdNU&ll=-34.78058480%2C-58.62436410&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location/h69y4qfqh2", // Déjalo vacío para que se genere automáticamente
+    googleMapsUrl: "https://maps.app.goo.gl/GX63Ah4vKMAxdnuh6", // Déjalo vacío para que se genere automáticamente
+    wazeUrl: "https://ul.waze.com/ul?place=ElhNYW51ZWwgQ2FzdGlsbGEgSGlkYWxnbyA3MywgQjE3NTggR29uesOhbGV6IENhdMOhbiwgUHJvdmluY2lhIGRlIEJ1ZW5vcyBBaXJlcywgQXJnZW50aW5hIjASLgoUChIJQZArc5PEvJUR0-NveUTv-uIQSSoUChIJ_0urkaPEvJUR5Bwo4Qalwlg&ll=-34.78081680%2C-58.62568140&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location", // Déjalo vacío para que se genere automáticamente
     // O proporciona URLs personalizadas:
     // googleMapsUrl: 'https://maps.google.com/?q=...',
     // wazeUrl: 'https://waze.com/ul?q=...',
@@ -66,7 +66,7 @@ export const clientConfig = {
   // 🎁 INFORMACIÓN BANCARIA PARA REGALOS
   regalos: {
     mostrarOpcion: true, // true o false
-    alias: "ledesma.599.mp",
+    alias: "ali.ivi.cor",
     cbu: "0000003100052227123206",
     nombreCuenta: "",
     mensajePersonalizado: "",

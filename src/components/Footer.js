@@ -169,7 +169,7 @@ export default function Footer() {
   if (!mounted) return null;
 
   return (
-    <footer className="h-screen relative bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white py-20 overflow-hidden">
+    <footer className="min-h-screen relative bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white py-12 md:py-20 overflow-x-hidden">
       {/* Imagen de fondo con efecto sombreado */}
       <div
         className="absolute inset-0 opacity-70"
