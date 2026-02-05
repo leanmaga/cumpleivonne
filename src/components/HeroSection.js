@@ -153,7 +153,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 md:hidden"
         style={{
-          backgroundImage: `url('/assets/verticalHero.png')`,
+          backgroundImage: `url('/assets/tapiz2.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
