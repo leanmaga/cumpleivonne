@@ -1,41 +1,41 @@
 @import "tailwindcss";
 
 @theme {
-  /* 🌸 Paleta Rosa Dusty - Color principal de la quinceañera */
-  --color-quince-50: #fceef0;
-  --color-quince-100: #f9dde0;
-  --color-quince-200: #f3bbc1;
-  --color-quince-300: #ec99a2;
-  --color-quince-400: #e47783;
-  --color-quince-500: #d4989d;
-  --color-quince-600: #c17b81;
-  --color-quince-700: #a55d62;
-  --color-quince-800: #7d464a;
-  --color-quince-900: #543032;
+  /* 🌊 Paleta Azul Océano - Color principal */
+  --color-ocean-50: #e6f7ff;
+  --color-ocean-100: #bae7ff;
+  --color-ocean-200: #91d5ff;
+  --color-ocean-300: #69c0ff;
+  --color-ocean-400: #40a9ff;
+  --color-ocean-500: #1890ff;
+  --color-ocean-600: #096dd9;
+  --color-ocean-700: #0050b3;
+  --color-ocean-800: #003a8c;
+  --color-ocean-900: #002766;
 
   /* 🏖️ Paleta Beige/Arena - Color secundario elegante */
-  --color-beige-50: #faf8f6;
-  --color-beige-100: #f4f0eb;
-  --color-beige-200: #ede7dc;
-  --color-beige-300: #e6ddd0;
-  --color-beige-400: #e1cfc4;
-  --color-beige-500: #d4bfb0;
-  --color-beige-600: #c0a999;
-  --color-beige-700: #a38977;
-  --color-beige-800: #7a6557;
-  --color-beige-900: #5a4a3f;
+  --color-sand-50: #faf8f6;
+  --color-sand-100: #f4f0eb;
+  --color-sand-200: #ede7dc;
+  --color-sand-300: #e6ddd0;
+  --color-sand-400: #e1cfc4;
+  --color-sand-500: #d4bfb0;
+  --color-sand-600: #c0a999;
+  --color-sand-700: #a38977;
+  --color-sand-800: #7a6557;
+  --color-sand-900: #5a4a3f;
 
-  /* 💕 Paleta Rosa Claro - Color terciario para acentos */
-  --color-rose-50: #fdf6f7;
-  --color-rose-100: #fbedf0;
-  --color-rose-200: #f7dbe0;
-  --color-rose-300: #f3c9d1;
-  --color-rose-400: #e8b4b8;
-  --color-rose-500: #dfa0a7;
-  --color-rose-600: #d18c94;
-  --color-rose-700: #b97179;
-  --color-rose-800: #8f565c;
-  --color-rose-900: #6b4145;
+  /* 🐚 Paleta Turquesa - Color terciario para acentos */
+  --color-turquoise-50: #e6fffb;
+  --color-turquoise-100: #b5f5ec;
+  --color-turquoise-200: #87e8de;
+  --color-turquoise-300: #5cdbd3;
+  --color-turquoise-400: #36cfc9;
+  --color-turquoise-500: #13c2c2;
+  --color-turquoise-600: #08979c;
+  --color-turquoise-700: #006d75;
+  --color-turquoise-800: #00474f;
+  --color-turquoise-900: #002329;
 
   /* ⚫ Paleta Elegante (Grises y Negros) - Para texto y elementos */
   --color-elegant-50: #f8fafc;
@@ -51,25 +51,25 @@
   --color-elegant-950: #020617;
 
   /* 🎨 Variables del sistema de diseño actualizadas */
-  --color-background: #faf8f6;
-  --color-foreground: #543032;
+  --color-background: #f0f9ff;
+  --color-foreground: #002766;
   --color-card: #ffffff;
-  --color-card-foreground: #543032;
+  --color-card-foreground: #002766;
   --color-popover: #ffffff;
-  --color-popover-foreground: #543032;
-  --color-primary: #d4989d; /* Rosa dusty como color primario */
+  --color-popover-foreground: #002766;
+  --color-primary: #1890ff; /* Azul océano como color primario */
   --color-primary-foreground: #ffffff;
   --color-secondary: #e1cfc4; /* Beige como secundario */
-  --color-secondary-foreground: #543032;
+  --color-secondary-foreground: #002766;
   --color-muted: #f4f0eb;
-  --color-muted-foreground: #7d464a;
-  --color-accent: #e8b4b8; /* Rosa claro como accent */
-  --color-accent-foreground: #543032;
+  --color-muted-foreground: #0050b3;
+  --color-accent: #5cdbd3; /* Turquesa como accent */
+  --color-accent-foreground: #002766;
   --color-destructive: #ef4444;
   --color-destructive-foreground: #fafafa;
-  --color-border: #ede7dc;
-  --color-input: #ede7dc;
-  --color-ring: #d4989d; /* Anillo rosa dusty */
+  --color-border: #91d5ff;
+  --color-input: #bae7ff;
+  --color-ring: #1890ff; /* Anillo azul océano */
 
   /* Border radius */
   --radius-lg: 0.5rem;
@@ -86,25 +86,25 @@
 
 @media (prefers-color-scheme: dark) {
   @theme {
-    --color-background: #543032;
-    --color-foreground: #fceef0;
-    --color-card: #7d464a;
-    --color-card-foreground: #fceef0;
-    --color-popover: #7d464a;
-    --color-popover-foreground: #fceef0;
-    --color-primary: #e8b4b8; /* Rosa claro en dark mode */
-    --color-primary-foreground: #543032;
+    --color-background: #002766;
+    --color-foreground: #e6f7ff;
+    --color-card: #003a8c;
+    --color-card-foreground: #e6f7ff;
+    --color-popover: #003a8c;
+    --color-popover-foreground: #e6f7ff;
+    --color-primary: #5cdbd3; /* Turquesa en dark mode */
+    --color-primary-foreground: #002766;
     --color-secondary: #c0a999;
-    --color-secondary-foreground: #fceef0;
-    --color-muted: #a55d62;
-    --color-muted-foreground: #f3bbc1;
+    --color-secondary-foreground: #e6f7ff;
+    --color-muted: #0050b3;
+    --color-muted-foreground: #91d5ff;
     --color-accent: #e1cfc4;
-    --color-accent-foreground: #543032;
+    --color-accent-foreground: #002766;
     --color-destructive: #7f1d1d;
-    --color-destructive-foreground: #fceef0;
-    --color-border: #a55d62;
-    --color-input: #a55d62;
-    --color-ring: #e8b4b8;
+    --color-destructive-foreground: #e6f7ff;
+    --color-border: #0050b3;
+    --color-input: #0050b3;
+    --color-ring: #5cdbd3;
   }
 }
 
@@ -124,56 +124,56 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar con nuevos colores rosa dusty */
+/* Custom scrollbar con colores oceánicos */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--color-quince-50);
+  background-color: var(--color-ocean-50);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-quince-400);
+  background-color: var(--color-ocean-400);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-quince-500);
+  background-color: var(--color-ocean-500);
 }
 
 /* ==========================================
    ✨ GLASS MORPHISM EFFECTS
    ========================================== */
 
-/* Glass effect auténtico - versión rosa dusty */
+/* Glass effect auténtico - versión oceánica */
 .glass {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(212, 152, 157, 0.1);
+  box-shadow: 0 4px 30px rgba(24, 144, 255, 0.1);
   backdrop-filter: blur(6.1px);
   -webkit-backdrop-filter: blur(6.1px);
   border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-/* Glass effect variant rosa dusty */
-.glass-quince {
-  background: rgba(212, 152, 157, 0.15);
+/* Glass effect variant azul océano */
+.glass-ocean {
+  background: rgba(24, 144, 255, 0.15);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(212, 152, 157, 0.15);
+  box-shadow: 0 4px 30px rgba(24, 144, 255, 0.15);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(212, 152, 157, 0.3);
+  border: 1px solid rgba(24, 144, 255, 0.3);
 }
 
-/* Glass effect variant beige */
-.glass-beige {
-  background: rgba(225, 207, 196, 0.2);
+/* Glass effect variant turquesa */
+.glass-turquoise {
+  background: rgba(92, 219, 211, 0.2);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(225, 207, 196, 0.1);
+  box-shadow: 0 4px 30px rgba(92, 219, 211, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(225, 207, 196, 0.35);
+  border: 1px solid rgba(92, 219, 211, 0.35);
 }
 
 /* Glass morphism para cards */
@@ -182,20 +182,20 @@ html {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 32px 0 rgba(212, 152, 157, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(24, 144, 255, 0.2);
 }
 
 /* ==========================================
    🎭 GRADIENTES PERSONALIZADOS
    ========================================== */
 
-/* Gradiente principal rosa a beige */
-.gradient-quince {
+/* Gradiente principal turquesa a azul a arena */
+.gradient-ocean {
   background: linear-gradient(
     135deg,
-    #f9dde0 0%,
-    #e8b4b8 25%,
-    #d4989d 50%,
+    #bae7ff 0%,
+    #5cdbd3 25%,
+    #1890ff 50%,
     #e1cfc4 75%,
     #f4f0eb 100%
   );
@@ -203,15 +203,15 @@ html {
 
 /* Gradiente suave para fondos */
 .gradient-soft {
-  background: linear-gradient(to bottom, #fceef0 0%, #f4f0eb 100%);
+  background: linear-gradient(to bottom, #e6f7ff 0%, #f0f9ff 100%);
 }
 
 /* Gradiente para overlays */
 .gradient-overlay {
   background: linear-gradient(
     180deg,
-    rgba(212, 152, 157, 0) 0%,
-    rgba(212, 152, 157, 0.8) 100%
+    rgba(24, 144, 255, 0) 0%,
+    rgba(24, 144, 255, 0.8) 100%
   );
 }
 
@@ -305,7 +305,7 @@ html {
 
 .hover-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(212, 152, 157, 0.15);
+  box-shadow: 0 10px 25px rgba(24, 144, 255, 0.15);
 }
 
 /* Transiciones suaves */
@@ -313,21 +313,21 @@ html {
   transition: all 0.3s ease-in-out;
 }
 
-/* Text gradient rosa dusty */
-.text-gradient-quince {
-  background: linear-gradient(135deg, #d4989d 0%, #e8b4b8 100%);
+/* Text gradient oceánico */
+.text-gradient-ocean {
+  background: linear-gradient(135deg, #1890ff 0%, #5cdbd3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 /* Sombras personalizadas */
-.shadow-quince {
-  box-shadow: 0 10px 25px -5px rgba(212, 152, 157, 0.2),
-    0 8px 10px -6px rgba(212, 152, 157, 0.15);
+.shadow-ocean {
+  box-shadow: 0 10px 25px -5px rgba(24, 144, 255, 0.2),
+    0 8px 10px -6px rgba(24, 144, 255, 0.15);
 }
 
-.shadow-beige {
+.shadow-sand {
   box-shadow: 0 10px 25px -5px rgba(225, 207, 196, 0.2),
     0 8px 10px -6px rgba(225, 207, 196, 0.15);
 }
@@ -487,7 +487,7 @@ html {
 
 .dresscode-card-hover:hover {
   transform: translateY(-20px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(212, 152, 157, 0.3);
+  box-shadow: 0 25px 50px rgba(24, 144, 255, 0.3);
 }
 
 /* ==========================================
@@ -595,7 +595,7 @@ html {
 /* Scrollbar personalizado para mensajes */
 .music-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #d4989d #fceef0;
+  scrollbar-color: #1890ff #e6f7ff;
 }
 
 .music-scrollbar::-webkit-scrollbar {
@@ -603,17 +603,17 @@ html {
 }
 
 .music-scrollbar::-webkit-scrollbar-track {
-  background: #fceef0;
+  background: #e6f7ff;
   border-radius: 10px;
 }
 
 .music-scrollbar::-webkit-scrollbar-thumb {
-  background: #d4989d;
+  background: #1890ff;
   border-radius: 10px;
 }
 
 .music-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #c17b81;
+  background: #096dd9;
 }
 
 /* Animación fade in desde abajo */
@@ -768,10 +768,10 @@ html {
 @keyframes rsvp-pulseGlow {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(212, 152, 157, 0.5);
+    box-shadow: 0 0 20px rgba(24, 144, 255, 0.5);
   }
   50% {
-    box-shadow: 0 0 40px rgba(212, 152, 157, 0.8);
+    box-shadow: 0 0 40px rgba(24, 144, 255, 0.8);
   }
 }
 
@@ -906,7 +906,7 @@ html {
 }
 
 /* Animación shimmer para texto */
-@keyframes footer-shimmerGold {
+@keyframes footer-shimmerOcean {
   0% {
     background-position: -200% 0;
   }
@@ -919,11 +919,11 @@ html {
 @keyframes footer-pulseGlow {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(212, 152, 157, 0.3);
+    box-shadow: 0 0 20px rgba(24, 144, 255, 0.3);
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 40px rgba(212, 152, 157, 0.5);
+    box-shadow: 0 0 40px rgba(24, 144, 255, 0.5);
     transform: scale(1.05);
   }
 }
@@ -969,7 +969,7 @@ html {
 }
 
 .footer-shimmer-text {
-  animation: footer-shimmerGold 3s ease-in-out infinite;
+  animation: footer-shimmerOcean 3s ease-in-out infinite;
 }
 
 .footer-pulse-glow {

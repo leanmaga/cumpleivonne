@@ -16,11 +16,11 @@ export const clientConfig = {
 
   // 📅 INFORMACIÓN DEL EVENTO
   evento: {
-    fecha: "Domingo 25 de Enero, 2026",
+    fecha: "Sábado 21 de Febrero",
     // ⚠️ IMPORTANTE: Formato de fechaCompleta para countdown (YYYY-MM-DD)
-    fechaCompleta: "2026-01-25",
-    hora: "10:00 AM",
-    horaInicio: "10:00",
+    fechaCompleta: "2026-02-21",
+    hora: "11:30 AM a 18:00 PM",
+    horaInicio: "11:30",
   },
 
   // 📍 UBICACIÓN
@@ -49,9 +49,9 @@ export const clientConfig = {
   // 👨‍👩‍👧‍👦 INFORMACIÓN DE CONTACTO
   contacto: {
     nombreFamilia: "Familia ...",
-    telefono: "+54 9 11 2163-0371",
+    telefono: "+54 9 11 6786-8486",
     email: "contacto@example.com",
-    whatsapp: "+541121630371", // Sin espacios ni guiones
+    whatsapp: "+541167868486", // Sin espacios ni guiones
   },
 
   // 📱 REDES SOCIALES
@@ -74,9 +74,9 @@ export const clientConfig = {
 
   // 📝 CONFIRMACIÓN DE ASISTENCIA (RSVP)
   rsvp: {
-    fechaLimite: "20 de Enero, 2026",
+    fechaLimite: "18 de Febrero",
     // Fecha límite en formato ISO para validaciones
-    fechaLimiteISO: "2026-01-20",
+    fechaLimiteISO: "2026-02-18",
     mensajeCierre: "¡Gracias por confirmar tu asistencia!",
     mostrarDietaryRestrictions: true, // Mostrar campo de restricciones alimentarias
   },

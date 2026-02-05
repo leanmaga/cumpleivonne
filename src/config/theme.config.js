@@ -7,46 +7,46 @@
 export const themeConfig = {
   // 🌈 COLORES PRINCIPALES
   colores: {
-    // Color primario (rosa polvoriento/dusty rose)
+    // Color primario (azul océano)
     primario: {
-      50: "#fceef0", // Rosa muy muy claro
-      100: "#f9dde0", // Rosa muy claro
-      200: "#f3bbc1", // Rosa claro
-      300: "#ec99a2", // Rosa medio claro
-      400: "#e47783", // Rosa medio
-      500: "#d4989d", // Color base - Rosa dusty (franja superior)
-      600: "#c17b81", // Rosa oscuro
-      700: "#a55d62", // Rosa más oscuro
-      800: "#7d464a", // Rosa muy oscuro
-      900: "#543032", // Rosa casi marrón
+      50: "#e6f7ff", // Celeste muy muy claro
+      100: "#bae7ff", // Celeste muy claro
+      200: "#91d5ff", // Celeste claro
+      300: "#69c0ff", // Celeste medio claro
+      400: "#40a9ff", // Celeste medio
+      500: "#1890ff", // Color base - Azul océano brillante (franja superior)
+      600: "#096dd9", // Azul océano medio
+      700: "#0050b3", // Azul océano oscuro
+      800: "#003a8c", // Azul profundo
+      900: "#002766", // Azul muy oscuro
     },
 
-    // Color secundario (beige/arena)
+    // Color secundario (beige/arena) - Perfecto para tema playa
     secundario: {
       50: "#faf8f6", // Beige casi blanco
-      100: "#f4f0eb", // Beige muy claro (franja inferior)
+      100: "#f4f0eb", // Beige muy claro (arena clara)
       200: "#ede7dc", // Beige claro
       300: "#e6ddd0", // Beige medio claro
       400: "#e1cfc4", // Beige medio (franja 3)
-      500: "#d4bfb0", // Color base - Beige
+      500: "#d4bfb0", // Color base - Beige arena
       600: "#c0a999", // Beige oscuro
       700: "#a38977", // Beige más oscuro
       800: "#7a6557", // Marrón beige
       900: "#5a4a3f", // Marrón oscuro
     },
 
-    // Color terciario (rosa claro para acentos)
+    // Color terciario (turquesa/celeste para acentos)
     terciario: {
-      50: "#fdf6f7",
-      100: "#fbedf0",
-      200: "#f7dbe0",
-      300: "#f3c9d1",
-      400: "#e8b4b8", // Rosa claro (franja 2)
-      500: "#dfa0a7",
-      600: "#d18c94",
-      700: "#b97179",
-      800: "#8f565c",
-      900: "#6b4145",
+      50: "#e6fffb",
+      100: "#b5f5ec",
+      200: "#87e8de",
+      300: "#5cdbd3", // Turquesa claro (franja 2)
+      400: "#36cfc9", // Turquesa medio
+      500: "#13c2c2", // Color base - Turquesa
+      600: "#08979c", // Turquesa oscuro
+      700: "#006d75", // Verde azulado
+      800: "#00474f", // Verde azulado oscuro
+      900: "#002329", // Verde azulado muy oscuro
     },
 
     // Colores elegantes (grises/negros)
@@ -65,16 +65,16 @@ export const themeConfig = {
     },
 
     // Colores de acento
-    acento: "#d4989d", // Rosa dusty
-    acentoSecundario: "#e1cfc4", // Beige arena
-    fondo: "#faf8f6", // Fondo beige muy claro
-    texto: "#543032", // Texto rosa oscuro/marrón
-    textoClaro: "#7d464a", // Texto medio
+    acento: "#1890ff", // Azul océano
+    acentoSecundario: "#5cdbd3", // Turquesa claro
+    fondo: "#f0f9ff", // Fondo celeste muy claro (cielo/agua)
+    texto: "#002766", // Texto azul muy oscuro
+    textoClaro: "#0050b3", // Texto azul medio
   },
 
   // 🎭 CÓDIGO DE VESTIMENTA - Colores restringidos
   codigoVestimenta: {
-    coloresRestringidos: ["Beige", "Arena"], // Colores que los invitados NO deben usar
+    coloresRestringidos: ["Azul océano", "Turquesa"], // Colores que los invitados NO deben usar
     mensajeRestriccion:
       "Para que la quinceañera brille en su día especial, te pedimos evitar los tonos",
   },
@@ -82,10 +82,10 @@ export const themeConfig = {
   // ✨ EFECTOS Y ANIMACIONES
   efectos: {
     glassMorphism: {
-      background: "rgba(255, 255, 255, 0.15)",
+      background: "rgba(24, 144, 255, 0.15)", // Azul con transparencia
       backdropBlur: "6.1px",
       borderRadius: "16px",
-      border: "1px solid rgba(255, 255, 255, 0.35)",
+      border: "1px solid rgba(24, 144, 255, 0.35)", // Borde azul
     },
     transicion: "0.3s ease",
     duracionAnimacion: "0.8s",
@@ -136,17 +136,17 @@ export function getColorWithOpacity(categoria, tono, opacidad = 1) {
  */
 export function getPrimaryColorClasses() {
   return {
-    bg: "bg-[#d4989d]", // Rosa dusty
-    bgHover: "hover:bg-[#c17b81]", // Rosa oscuro
-    text: "text-[#d4989d]", // Rosa dusty
-    border: "border-[#d4989d]", // Rosa dusty
-    gradient: "from-[#e8b4b8] via-[#d4989d] to-[#e1cfc4]", // Degradado rosa a beige
-    gradientReverse: "from-[#e1cfc4] via-[#e8b4b8] to-[#d4989d]", // Degradado inverso
+    bg: "bg-[#1890ff]", // Azul océano
+    bgHover: "hover:bg-[#096dd9]", // Azul océano más oscuro
+    text: "text-[#1890ff]", // Azul océano
+    border: "border-[#1890ff]", // Azul océano
+    gradient: "from-[#5cdbd3] via-[#1890ff] to-[#e1cfc4]", // Degradado turquesa > azul > arena
+    gradientReverse: "from-[#e1cfc4] via-[#5cdbd3] to-[#1890ff]", // Degradado inverso
   };
 }
 
 /**
- * 🎨 FUNCIÓN HELPER: Obtener clases de color secundario (beige)
+ * 🎨 FUNCIÓN HELPER: Obtener clases de color secundario (beige/arena)
  */
 export function getSecondaryColorClasses() {
   return {

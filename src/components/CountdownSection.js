@@ -281,12 +281,12 @@ export default function CountdownSection() {
         }
 
         .glass-card {
-          background: rgba(255, 255, 255, 0.25);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.4);
-          box-shadow: 0 8px 32px 0 rgba(212, 152, 157, 0.2);
-        }
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(24, 144, 255, 0.2);  // ✅ Azul océano
+}
 
         .shimmer {
           background: linear-gradient(

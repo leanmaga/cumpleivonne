@@ -2,8 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Music, Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { useAudio } from "./AudioContext";
+import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 
 const MusicPlayer = ({ className = "", showVolumeControl = true }) => {
+  // ✅ Obtener colores del theme config
+  const { colores } = useQuinceaneraConfig();
+
   // Obtener todo el estado y las funciones del contexto global
   const {
     isPlaying,
@@ -16,11 +20,23 @@ const MusicPlayer = ({ className = "", showVolumeControl = true }) => {
     toggleMute,
   } = useAudio();
 
+  // Convertir hex a rgba para las animaciones
+  const hexToRgba = (hex, alpha) => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
   // Si hay error, mostrar mensaje de error
   if (error) {
     return (
       <div
-        className={`inline-flex items-center px-2 py-1 bg-red-100 text-red-800 rounded text-xs ${className}`}
+        className={`inline-flex items-center px-2 py-1 rounded text-xs ${className}`}
+        style={{
+          backgroundColor: "#fee",
+          color: "#c00",
+        }}
       >
         <Music size={14} className="mr-1" />
         <span className="text-xs">Audio Error</span>
@@ -41,9 +57,9 @@ const MusicPlayer = ({ className = "", showVolumeControl = true }) => {
             ? {
                 scale: [1, 1.08, 1],
                 boxShadow: [
-                  "0 4px 20px rgba(212, 152, 157, 0.5)",
-                  "0 6px 30px rgba(212, 152, 157, 0.8)",
-                  "0 4px 20px rgba(212, 152, 157, 0.5)",
+                  `0 4px 20px ${hexToRgba(colores.primario[500], 0.5)}`,
+                  `0 6px 30px ${hexToRgba(colores.primario[500], 0.8)}`,
+                  `0 4px 20px ${hexToRgba(colores.primario[500], 0.5)}`,
                 ],
               }
             : {}
@@ -57,13 +73,17 @@ const MusicPlayer = ({ className = "", showVolumeControl = true }) => {
               }
             : {}
         }
-        className={`flex items-center gap-1 px-3 py-1.5 text-sm font-bold rounded-full transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed relative overflow-hidden ${
-          isPlaying
-            ? "bg-gradient-to-r from-[#d4989d] via-[#e8b4b8] to-[#d4989d] bg-[length:200%_100%] shadow-lg shadow-quince text-[#543032]"
+        className="flex items-center gap-1 px-3 py-1.5 text-sm font-bold rounded-full transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed relative overflow-hidden"
+        style={{
+          background: isPlaying
+            ? `linear-gradient(to right, ${colores.primario[500]}, ${colores.terciario[400]}, ${colores.primario[500]})`
             : isLoading
-            ? "bg-[#e8b4b8] text-[#543032]"
-            : "bg-gradient-to-r from-[#e8b4b8] via-[#dfa0a7] to-[#e8b4b8] shadow-xl shadow-quince text-[#543032]"
-        }`}
+            ? colores.terciario[400]
+            : `linear-gradient(to right, ${colores.terciario[400]}, ${colores.terciario[500]}, ${colores.terciario[400]})`,
+          backgroundSize: isPlaying ? "200% 100%" : "100% 100%",
+          boxShadow: `0 10px 25px ${hexToRgba(colores.primario[500], 0.2)}`,
+          color: "#ffffff",
+        }}
         aria-label={isPlaying ? "Pausar música" : "Reproducir música"}
       >
         {/* Efecto de brillo cuando está reproduciéndose */}
@@ -119,7 +139,16 @@ const MusicPlayer = ({ className = "", showVolumeControl = true }) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={toggleMute}
-            className="text-[#d4989d] hover:text-[#c17b81] p-1 rounded-full transition-all duration-300"
+            className="p-1 rounded-full transition-all duration-300"
+            style={{
+              color: colores.primario[500],
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = colores.primario[600];
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = colores.primario[500];
+            }}
             aria-label={isMuted ? "Activar sonido" : "Silenciar"}
           >
             <motion.div
@@ -147,8 +176,8 @@ const MusicPlayer = ({ className = "", showVolumeControl = true }) => {
             className="w-16 h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
             style={{
               background: `linear-gradient(to right, 
-                #d4989d 0%, 
-                #d4989d ${(isMuted ? 0 : volume) * 100}%, 
+                ${colores.primario[500]} 0%, 
+                ${colores.primario[500]} ${(isMuted ? 0 : volume) * 100}%, 
                 #e5e7eb ${(isMuted ? 0 : volume) * 100}%, 
                 #e5e7eb 100%)`,
             }}

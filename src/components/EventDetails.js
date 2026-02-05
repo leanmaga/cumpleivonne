@@ -13,11 +13,11 @@ const SeaBubbles = ({ count = 15, colores }) => {
     const newBubbles = Array.from({ length: count }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
-      y: 100 + Math.random() * 20, // Empiezan desde abajo
-      size: Math.random() * 20 + 10, // Burbujas más grandes
+      y: 100 + Math.random() * 20,
+      size: Math.random() * 20 + 10,
       delay: Math.random() * 5,
-      duration: Math.random() * 4 + 6, // Movimiento más lento
-      wobble: Math.random() * 30 - 15, // Movimiento lateral
+      duration: Math.random() * 4 + 6,
+      wobble: Math.random() * 30 - 15,
     }));
     setBubbles(newBubbles);
   }, [count, colores]);
@@ -47,7 +47,7 @@ const SeaBubbles = ({ count = 15, colores }) => {
             scale: 0.5,
           }}
           animate={{
-            y: [-20, -window.innerHeight - 100], // Suben hasta salir de la pantalla
+            y: [-20, -window.innerHeight - 100],
             x: [0, bubble.wobble, -bubble.wobble, bubble.wobble * 0.5, 0],
             opacity: [0, 0.8, 0.8, 0.6, 0],
             scale: [0.5, 1, 1, 0.8, 0.3],
@@ -65,7 +65,6 @@ const SeaBubbles = ({ count = 15, colores }) => {
   );
 };
 
-// Componente de burbujas más pequeñas
 const SmallBubbles = ({ count = 8, colores }) => {
   const [particles, setParticles] = useState([]);
 
@@ -151,29 +150,32 @@ export default function DelicateEventDetails() {
     }
   };
 
-  // Configuración de las cards de detalles
+  // Configuración de las cards de detalles con gradientes inline
   const details = [
     {
       icon: Calendar,
       title: "Fecha",
       value: fechaEvento,
-      color: `from-[${colores.primario[400]}] to-[${colores.terciario[400]}]`,
-      gradient: "bg-gradient-to-br from-[#e47783] to-[#e8b4b8]",
+      gradientStyle: {
+        background: `linear-gradient(to bottom right, ${colores.primario[400]}, ${colores.terciario[400]})`,
+      },
     },
     {
       icon: Clock,
       title: "Hora",
       value: horaEvento,
-      color: `from-[${colores.terciario[400]}] to-[${colores.primario[400]}]`,
-      gradient: "bg-gradient-to-br from-[#e8b4b8] to-[#e47783]",
+      gradientStyle: {
+        background: `linear-gradient(to bottom right, ${colores.terciario[400]}, ${colores.primario[400]})`,
+      },
     },
     {
       icon: MapPin,
       title: "Lugar",
       value: lugar,
       description: direccion,
-      color: `from-[${colores.primario[500]}] to-[${colores.terciario[400]}]`,
-      gradient: "bg-gradient-to-br from-[#d4989d] to-[#e8b4b8]",
+      gradientStyle: {
+        background: `linear-gradient(to bottom right, ${colores.primario[500]}, ${colores.terciario[400]})`,
+      },
     },
   ];
 
@@ -186,7 +188,7 @@ export default function DelicateEventDetails() {
     >
       {/* Elementos decorativos de fondo */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Sparkles flotantes con colores rosa */}
+        {/* Sparkles flotantes con colores oceánicos */}
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
@@ -261,7 +263,8 @@ export default function DelicateEventDetails() {
                 {/* Icono */}
                 <div className="text-center mb-3">
                   <div
-                    className={`inline-flex items-center justify-center w-10 h-10 ${detail.gradient} rounded-xl mb-2 shadow-md`}
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-xl mb-2 shadow-md"
+                    style={detail.gradientStyle}
                   >
                     <IconComponent className="w-5 h-5 text-white" />
                   </div>

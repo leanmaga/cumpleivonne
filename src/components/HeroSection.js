@@ -164,7 +164,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 hidden md:block"
         style={{
-          backgroundImage: `url('/assets/tapiz.png')`,
+          backgroundImage: `url('/assets/gato.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
