@@ -25,24 +25,24 @@ export const clientConfig = {
 
   // 📍 UBICACIÓN
   ubicacion: {
-    nombreLugar: "",
-    direccion: "Achupallas 420",
-    ciudad: "Mariano Acosta",
+    nombreLugar: "La Catana",
+    direccion: "A la altura del km 31 y ½ de la Ruta 3. (a unas cuadras de Padre Mario)",
+    ciudad: "González Catán",
     provincia: "Buenos Aires",
     pais: "Argentina",
     // URLs de mapas (se generan automáticamente pero puedes personalizarlas)
-    googleMapsUrl: "https://maps.app.goo.gl/a98M1oL8oEfs5jTp6?g_st=iW", // Déjalo vacío para que se genere automáticamente
-    wazeUrl: "https://waze.com/ul/h69y4qfqh2", // Déjalo vacío para que se genere automáticamente
+    googleMapsUrl: "google.com/maps/dir//-34.780673,-58.624208/@-34.780673,-58.624208,15z", // Déjalo vacío para que se genere automáticamente
+    wazeUrl: "https://waze.com/https://ul.waze.com/ul?place=ChIJKQTTQZPEvJUR_Z_JQzXQdNU&ll=-34.78058480%2C-58.62436410&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location/h69y4qfqh2", // Déjalo vacío para que se genere automáticamente
     // O proporciona URLs personalizadas:
     // googleMapsUrl: 'https://maps.google.com/?q=...',
     // wazeUrl: 'https://waze.com/ul?q=...',
 
     // Imágenes del salón (ubicadas en /public/assets/)
     imagenesSalon: [
-      "/assets/quinta1.jpeg",
-      "/assets/quinta2.jpeg",
-      "/assets/quinta3.jpeg",
-      "/assets/quinta4.jpeg",
+      "/assets/quinta1.jpg",
+      "/assets/quinta2.jpg",
+      "/assets/quinta3.jpg",
+      "/assets/quinta4.jpg",
     ],
   },
 
