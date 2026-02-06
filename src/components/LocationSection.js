@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MapPin, Phone, Clock, ChevronLeft, ChevronRight } from "lucide-react";
+import { MapPin, Phone, Clock, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
 import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 import { useLoading } from "@/components/PageLoader";
@@ -15,11 +15,11 @@ const SeaBubbles = ({ count = 15, colores }) => {
     const newBubbles = Array.from({ length: count }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
-      y: 100 + Math.random() * 20, // Empiezan desde abajo
-      size: Math.random() * 20 + 10, // Burbujas más grandes
+      y: 100 + Math.random() * 20,
+      size: Math.random() * 20 + 10,
       delay: Math.random() * 5,
-      duration: Math.random() * 4 + 6, // Movimiento más lento
-      wobble: Math.random() * 30 - 15, // Movimiento lateral
+      duration: Math.random() * 4 + 6,
+      wobble: Math.random() * 30 - 15,
     }));
     setBubbles(newBubbles);
   }, [count, colores]);
@@ -49,7 +49,7 @@ const SeaBubbles = ({ count = 15, colores }) => {
             scale: 0.5,
           }}
           animate={{
-            y: [-20, -window.innerHeight - 100], // Suben hasta salir de la pantalla
+            y: [-20, -window.innerHeight - 100],
             x: [0, bubble.wobble, -bubble.wobble, bubble.wobble * 0.5, 0],
             opacity: [0, 0.8, 0.8, 0.6, 0],
             scale: [0.5, 1, 1, 0.8, 0.3],
@@ -67,7 +67,6 @@ const SeaBubbles = ({ count = 15, colores }) => {
   );
 };
 
-// Componente de burbujas más pequeñas
 const SmallBubbles = ({ count = 8, colores }) => {
   const [particles, setParticles] = useState([]);
 
@@ -133,7 +132,6 @@ const SmallBubbles = ({ count = 8, colores }) => {
 };
 
 export default function LocationSection() {
-  // ✅ Usar configuración centralizada
   const {
     lugar,
     direccion,
@@ -146,13 +144,24 @@ export default function LocationSection() {
     colores,
   } = useQuinceaneraConfig();
 
-  // ✅ Hook del loader para reportar imágenes
   const { incrementLoadedImages } = useLoading();
 
-  // Slider state
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [particles, setParticles] = useState([]);
 
-  // ✅ Reportar carga de imágenes al loader
+  // Generar partículas flotantes
+  useEffect(() => {
+    const newParticles = Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      delay: Math.random() * 6,
+      duration: 5 + Math.random() * 4,
+      size: Math.random() * 3 + 1,
+    }));
+    setParticles(newParticles);
+  }, []);
+
   const handleImageLoad = () => {
     incrementLoadedImages();
     console.log(`✅ Imagen del salón cargada`);
@@ -160,14 +169,13 @@ export default function LocationSection() {
 
   const handleImageError = (imageSrc) => {
     console.warn(`⚠️ Error al cargar imagen del salón: ${imageSrc}`);
-    incrementLoadedImages(); // También contar las que fallan
+    incrementLoadedImages();
   };
 
-  // Auto-slide functionality
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % imagenesSalon.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [imagenesSalon.length]);
@@ -189,21 +197,207 @@ export default function LocationSection() {
   return (
     <section
       id="location"
-      className="py-20 min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        background: `linear-gradient(135deg, ${colores.primario[50]} 0%, ${colores.secundario[50]} 50%, ${colores.primario[100]} 100%)`,
-      }}
+      className="py-20 min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white"
     >
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16 location-fade-in-up">
-          <MapPin
-            className="w-12 h-12 mx-auto mb-4"
-            style={{ color: colores.primario[600] }}
-          />
-          <h2
-            className="font-Emilys_Candy text-5xl md:text-7xl font-bold mb-8 p-4 dresscode-shimmer-text"
+      <style jsx>{`
+        @keyframes location-particle-gentle {
+          0%,
+          100% {
+            transform: translateY(0px) translateX(0px);
+            opacity: 0.3;
+          }
+          25% {
+            transform: translateY(-15px) translateX(10px);
+            opacity: 0.6;
+          }
+          50% {
+            transform: translateY(-30px) translateX(-5px);
+            opacity: 0.8;
+          }
+          75% {
+            transform: translateY(-15px) translateX(5px);
+            opacity: 0.6;
+          }
+        }
+
+        .location-particle-gentle {
+          animation: location-particle-gentle var(--duration) ease-in-out
+            infinite;
+          animation-delay: var(--delay);
+        }
+
+        @keyframes location-pulse-glow {
+          0%,
+          100% {
+            opacity: 0.4;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.8;
+            transform: scale(1.1);
+          }
+        }
+
+        .location-pulse-glow {
+          animation: location-pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes location-shimmer {
+          0% {
+            background-position: -1000px 0;
+          }
+          100% {
+            background-position: 1000px 0;
+          }
+        }
+
+        .location-shimmer-text {
+          background-size: 200% 100%;
+          animation: location-shimmer 3s linear infinite;
+        }
+
+        @keyframes location-fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .location-fade-in-up {
+          animation: location-fade-in-up 0.8s ease-out forwards;
+        }
+
+        @keyframes location-fade-in-left {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        .location-fade-in-left {
+          animation: location-fade-in-left 0.8s ease-out forwards;
+        }
+
+        @keyframes location-fade-in-right {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        .location-fade-in-right {
+          animation: location-fade-in-right 0.8s ease-out forwards;
+        }
+
+        .location-scale-hover {
+          transition: all 0.3s ease;
+        }
+
+        .location-scale-hover:hover {
+          transform: scale(1.02);
+        }
+
+        .location-slide-transition {
+          transition: transform 0.5s ease-in-out;
+        }
+
+        @keyframes location-rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        .location-rotate-element {
+          animation: location-rotate 20s linear infinite;
+        }
+
+        .glass-card-dark {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        }
+      `}</style>
+
+      {/* Imagen de fondo con efecto sombreado */}
+      <div
+        className="absolute inset-0 opacity-70"
+        style={{
+          backgroundImage: "url(/assets/tapiz2.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center 50%",
+          backgroundRepeat: "no-repeat",
+          maskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,1) 60%, rgba(0,0,0,0.8) 80%, rgba(0,0,0,0.4) 90%, rgba(0,0,0,0) 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,1) 60%, rgba(0,0,0,0.8) 80%, rgba(0,0,0,0.4) 90%, rgba(0,0,0,0) 100%)",
+        }}
+      />
+
+      {/* Overlay adicional */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+
+      {/* Partículas flotantes */}
+      <div className="absolute inset-0 pointer-events-none">
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="absolute location-particle-gentle"
             style={{
-              background: `linear-gradient(90deg, ${colores.primario[500]} 0%, ${colores.terciario[400]} 50%, ${colores.primario[500]} 100%)`,
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              "--delay": `${particle.delay}s`,
+              "--duration": `${particle.duration}s`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+            }}
+          >
+            <Star className="w-full h-full text-white" />
+          </div>
+        ))}
+      </div>
+
+      <SeaBubbles count={20} colores={colores} />
+      <SmallBubbles count={15} colores={colores} />
+
+      {/* Overlay de gradiente sutil */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
+        <div className="text-center mb-16 location-fade-in-up">
+          <div className="relative inline-block mb-6">
+            <div
+              className="absolute inset-0 blur-3xl location-pulse-glow"
+              style={{
+                background: `linear-gradient(to right, ${colores.primario[400]}33, ${colores.terciario[400]}33)`,
+              }}
+            />
+            <MapPin
+              className="relative w-16 h-16 mx-auto"
+              style={{ color: colores.primario[400] }}
+            />
+          </div>
+
+          <h2
+            className="font-Emilys_Candy text-5xl md:text-7xl font-bold mb-8 p-4 location-shimmer-text"
+            style={{
+              background: `linear-gradient(90deg, ${colores.primario[400]} 0%, ${colores.primario[500]} 50%, ${colores.primario[400]} 100%)`,
               backgroundSize: "200% 100%",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -214,21 +408,13 @@ export default function LocationSection() {
           </h2>
         </div>
 
-        <SeaBubbles count={20} colores={colores} />
-        <SmallBubbles count={15} colores={colores} />
-
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Location Details */}
           <div className="space-y-8 location-fade-in-left">
-            <div
-              className="bg-white/60 backdrop-blur-xl rounded-3xl p-8 shadow-2xl"
-              style={{
-                border: `1px solid ${colores.primario[300]}66`,
-              }}
-            >
+            <div className="glass-card-dark rounded-3xl p-8 shadow-2xl">
               <h3
                 className="font-serif text-3xl font-bold mb-6"
-                style={{ color: colores.primario[800] }}
+                style={{ color: colores.primario[300] }}
               >
                 {lugar}
               </h3>
@@ -236,80 +422,91 @@ export default function LocationSection() {
               <div className="space-y-6">
                 <div
                   className="flex items-start gap-4 p-4 rounded-2xl transition-colors location-scale-hover"
-                  style={{
-                    ":hover": {
-                      backgroundColor: `${colores.primario[100]}80`,
-                    },
-                  }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor = `${colores.primario[100]}80`)
+                    (e.currentTarget.style.backgroundColor = `${colores.primario[400]}33`)
                   }
                   onMouseLeave={(e) =>
                     (e.currentTarget.style.backgroundColor = "transparent")
                   }
                 >
-                  <MapPin
-                    className="w-6 h-6 flex-shrink-0 mt-1"
-                    style={{ color: colores.primario[600] }}
-                  />
+                  <div className="relative">
+                    <div
+                      className="absolute inset-0 blur-lg opacity-50"
+                      style={{ backgroundColor: `${colores.primario[400]}66` }}
+                    />
+                    <MapPin
+                      className="relative w-6 h-6 flex-shrink-0 mt-1"
+                      style={{ color: colores.primario[400] }}
+                    />
+                  </div>
                   <div>
                     <h4
                       className="font-semibold mb-1"
-                      style={{ color: colores.primario[800] }}
+                      style={{ color: colores.primario[300] }}
                     >
                       Dirección
                     </h4>
-                    <p style={{ color: colores.primario[700] }}>{direccion}</p>
+                    <p className="text-gray-300">{direccion}</p>
                   </div>
                 </div>
 
                 <div
                   className="flex items-start gap-4 p-4 rounded-2xl transition-colors location-scale-hover"
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor = `${colores.primario[100]}80`)
+                    (e.currentTarget.style.backgroundColor = `${colores.primario[400]}33`)
                   }
                   onMouseLeave={(e) =>
                     (e.currentTarget.style.backgroundColor = "transparent")
                   }
                 >
-                  <Phone
-                    className="w-6 h-6 flex-shrink-0 mt-1"
-                    style={{ color: colores.primario[600] }}
-                  />
+                  <div className="relative">
+                    <div
+                      className="absolute inset-0 blur-lg opacity-50"
+                      style={{ backgroundColor: `${colores.primario[400]}66` }}
+                    />
+                    <Phone
+                      className="relative w-6 h-6 flex-shrink-0 mt-1"
+                      style={{ color: colores.primario[400] }}
+                    />
+                  </div>
                   <div>
                     <h4
                       className="font-semibold mb-1"
-                      style={{ color: colores.primario[800] }}
+                      style={{ color: colores.primario[300] }}
                     >
                       Contacto
                     </h4>
-                    <p style={{ color: colores.primario[700] }}>{telefono}</p>
+                    <p className="text-gray-300">{telefono}</p>
                   </div>
                 </div>
 
                 <div
                   className="flex items-start gap-4 p-4 rounded-2xl transition-colors location-scale-hover"
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.backgroundColor = `${colores.primario[100]}80`)
+                    (e.currentTarget.style.backgroundColor = `${colores.primario[400]}33`)
                   }
                   onMouseLeave={(e) =>
                     (e.currentTarget.style.backgroundColor = "transparent")
                   }
                 >
-                  <Clock
-                    className="w-6 h-6 flex-shrink-0 mt-1"
-                    style={{ color: colores.primario[600] }}
-                  />
+                  <div className="relative">
+                    <div
+                      className="absolute inset-0 blur-lg opacity-50"
+                      style={{ backgroundColor: `${colores.primario[400]}66` }}
+                    />
+                    <Clock
+                      className="relative w-6 h-6 flex-shrink-0 mt-1"
+                      style={{ color: colores.primario[400] }}
+                    />
+                  </div>
                   <div>
                     <h4
                       className="font-semibold mb-1"
-                      style={{ color: colores.primario[800] }}
+                      style={{ color: colores.primario[300] }}
                     >
                       Horario
                     </h4>
-                    <p style={{ color: colores.primario[700] }}>
-                      Recepción: {horaInicio}
-                    </p>
+                    <p className="text-gray-300">Recepción: {horaInicio}</p>
                   </div>
                 </div>
               </div>
@@ -358,12 +555,7 @@ export default function LocationSection() {
 
           {/* Image Slider */}
           <div className="relative location-fade-in-right">
-            <div
-              className="aspect-square lg:aspect-[4/3] rounded-3xl overflow-hidden shadow-xl relative"
-              style={{
-                background: `linear-gradient(135deg, ${colores.primario[100]}, ${colores.secundario[100]})`,
-              }}
-            >
+            <div className="aspect-square lg:aspect-[4/3] rounded-3xl overflow-hidden shadow-xl relative glass-card-dark">
               {/* Image Container */}
               <div className="relative w-full h-full overflow-hidden">
                 <div

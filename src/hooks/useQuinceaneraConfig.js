@@ -205,6 +205,8 @@ export function useQuinceaneraConfig() {
   };
 }
 
+// Al final del archivo hooks/useQuinceaneraConfig.js
+
 /**
  * 🎨 HOOK PARA OBTENER SOLO LOS COLORES
  */
@@ -219,4 +221,5 @@ export function useDressCode() {
   return clientConfig.codigoVestimenta;
 }
 
+// ✅ IMPORTANTE: Exportación por defecto al final
 export default useQuinceaneraConfig;

@@ -39,10 +39,11 @@ export const clientConfig = {
 
     // Imágenes del salón (ubicadas en /public/assets/)
     imagenesSalon: [
-      "/assets/quinta1.jpg",
-      "/assets/quinta2.jpg",
-      "/assets/quinta3.jpg",
-      "/assets/quinta4.jpg",
+      "/assets/quinta1.jpeg",
+      "/assets/quinta2.jpeg",
+      "/assets/quinta3.jpeg",
+      "/assets/quinta5.jpeg",
+      "/assets/quinta6.jpeg",
     ],
   },
 
