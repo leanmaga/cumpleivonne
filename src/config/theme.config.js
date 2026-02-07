@@ -74,9 +74,9 @@ export const themeConfig = {
 
   // 🎭 CÓDIGO DE VESTIMENTA - Colores restringidos
   codigoVestimenta: {
-    coloresRestringidos: ["Azul océano", "Turquesa"], // Colores que los invitados NO deben usar
+    coloresRestringidos: ["Azul océano", "Turquesa"],
     mensajeRestriccion:
-      "Para que la quinceañera brille en su día especial, te pedimos evitar los tonos",
+      "",
   },
 
   // ✨ EFECTOS Y ANIMACIONES

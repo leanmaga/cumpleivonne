@@ -4,7 +4,6 @@ import HeroSection from "@/components/HeroSection";
 import CountdownSection from "@/components/CountdownSection";
 import EventDetails from "@/components/EventDetails";
 import DressCode from "@/components/DressCode";
-import MusicRequests from "@/components/MusicRequests";
 import LocationSection from "@/components/LocationSection";
 import RSVPSection from "@/components/RSVPSection";
 import Footer from "@/components/Footer";
@@ -42,7 +41,6 @@ const MainContent = () => {
             <EventDetails />
             <DressCode />
             <LocationSection />
-            <MusicRequests />
             <RSVPSection />
             <Footer />
           </main>

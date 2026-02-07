@@ -105,7 +105,7 @@ export default function RSVPSection() {
   };
 
   const formatWhatsAppMessage = (data) => {
-    let message = `🎉 *CONFIRMACIÓN DE ASISTENCIA - QUINCEAÑERA ${nombre.toUpperCase()}*\n\n`;
+    let message = `🎉 *CONFIRMACIÓN DE ASISTENCIA - ${nombre.toUpperCase()}*\n\n`;
     message += `👤 *Nombre:* ${data.name}\n`;
     message += `📱 *Teléfono:* ${data.phone || "No proporcionado"}\n`;
 

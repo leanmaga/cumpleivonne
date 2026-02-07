@@ -25,7 +25,7 @@ export const clientConfig = {
 
   // 📍 UBICACIÓN
   ubicacion: {
-    nombreLugar: "La Catana",
+    nombreLugar: "",
     direccion: "Hidalgo 73",
     ciudad: "González Catán",
     provincia: "Buenos Aires",
@@ -96,7 +96,7 @@ export const clientConfig = {
       "Preferentemente, se invita a usar prendas, accesorios, maquillaje o peinados inspirados en la temática Alicia en el País de las Maravillas.",
     coloresRestringidos: ["Naturales", "Champagne"],
     mensajeRestriccion:
-      "Por comodidad y para mantener la exclusividad de la quinceañera, se ruega evitar los tonos",
+      "s",
 
     // Categorías de vestimenta con sugerencias
     categorias: {
