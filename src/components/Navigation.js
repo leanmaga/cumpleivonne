@@ -11,7 +11,6 @@ const navItems = [
   { name: "Detalles", href: "#details" },
   { name: "Dress Code", href: "#dresscode" },
   { name: "Ubicación", href: "#location" },
-  { name: "Música", href: "#music" },
   { name: "RSVP", href: "#rsvp" },
 ];
 
