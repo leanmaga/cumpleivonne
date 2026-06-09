@@ -179,7 +179,7 @@ export default function RSVPSection() {
           <div
             className="relative h-screen w-full flex items-center justify-center"
             style={{
-              backgroundImage: `url('/assets/1.jpg')`,
+              backgroundImage: `url('/assets/1.png')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -313,7 +313,7 @@ export default function RSVPSection() {
             <div
               className="w-full h-full"
               style={{
-                backgroundImage: `url('/assets/1.jpg')`,
+                backgroundImage: `url('/assets/1.png')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
@@ -413,7 +413,7 @@ export default function RSVPSection() {
               <div
                 className="relative h-screen w-full flex items-center justify-center"
                 style={{
-                  backgroundImage: `url('/assets/1.jpg')`,
+                  backgroundImage: `url('/assets/1.png')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
@@ -703,18 +703,13 @@ export default function RSVPSection() {
           <div
             className="w-full h-full"
             style={{
-              backgroundImage: `url('/assets/1.jpg')`,
+              backgroundImage: `url('/assets/1.png')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
           />
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(135deg, ${colores.primario[900]}99, ${colores.primario[800]}b3, ${colores.primario[700]}cc)`,
-            }}
-          />
+          
         </div>
 
         <div

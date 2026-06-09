@@ -9,30 +9,30 @@
 export const clientConfig = {
   // 👤 INFORMACIÓN PERSONAL
   quinceañera: {
-    nombre: "Ivonne",
-    edad: 12,
+    nombre: "Zafiro",
+    edad: "",
     apodo: "", // Opcional, ej: 'Eli'
   },
 
   // 📅 INFORMACIÓN DEL EVENTO
   evento: {
-    fecha: "Sábado 21 de Febrero",
+    fecha: "Sábado 14 de Junio",
     // ⚠️ IMPORTANTE: Formato de fechaCompleta para countdown (YYYY-MM-DD)
-    fechaCompleta: "2026-02-21",
-    hora: "11:30 AM a 18:00 PM",
-    horaInicio: "11:30",
+    fechaCompleta: "2026-06-14",
+    hora: "18:00",
+    horaInicio: "18:00",
   },
 
   // 📍 UBICACIÓN
   ubicacion: {
     nombreLugar: "",
-    direccion: "Hidalgo 73",
-    ciudad: "González Catán",
+    direccion: "Manuel Soler 1855, Libertad Merlo",
+    ciudad: "Merlo",
     provincia: "Buenos Aires",
     pais: "Argentina",
     // URLs de mapas (se generan automáticamente pero puedes personalizarlas)
-    googleMapsUrl: "https://maps.app.goo.gl/GX63Ah4vKMAxdnuh6", // Déjalo vacío para que se genere automáticamente
-    wazeUrl: "https://ul.waze.com/ul?place=ElhNYW51ZWwgQ2FzdGlsbGEgSGlkYWxnbyA3MywgQjE3NTggR29uesOhbGV6IENhdMOhbiwgUHJvdmluY2lhIGRlIEJ1ZW5vcyBBaXJlcywgQXJnZW50aW5hIjASLgoUChIJQZArc5PEvJUR0-NveUTv-uIQSSoUChIJ_0urkaPEvJUR5Bwo4Qalwlg&ll=-34.78081680%2C-58.62568140&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location", // Déjalo vacío para que se genere automáticamente
+    googleMapsUrl: "",
+    wazeUrl: "",
     // O proporciona URLs personalizadas:
     // googleMapsUrl: 'https://maps.google.com/?q=...',
     // wazeUrl: 'https://waze.com/ul?q=...',
@@ -49,35 +49,35 @@ export const clientConfig = {
 
   // 👨‍👩‍👧‍👦 INFORMACIÓN DE CONTACTO
   contacto: {
-    nombreFamilia: "Familia ...",
-    telefono: "+54 9 11 6786-8486",
-    email: "contacto@example.com",
-    whatsapp: "+541167868486", // Sin espacios ni guiones
+    nombreFamilia: "Familia Magallanes",
+    telefono: "+54 9 11 2776-4823",
+    email: "patagoniascript@gmail.com",
+    whatsapp: "+541127764823", // Sin espacios ni guiones
   },
 
   // 📱 REDES SOCIALES
   redes: {
     instagram: {
-      usuario: "elizabeth_12", // Sin @
-      url: "https://instagram.com/elizabeth_15",
+      usuario: "leanmaga08", // Sin @
+      url: "https://instagram.com/leanmaga08",
     },
-    hashtag: "", // Déjalo vacío para generarlo automáticamente: #Elizabeth12Años
+    hashtag: "#wellcomezafiro", // Déjalo vacío para generarlo automáticamente: #Elizabeth''Años
   },
 
   // 🎁 INFORMACIÓN BANCARIA PARA REGALOS
   regalos: {
     mostrarOpcion: true, // true o false
-    alias: "ali.ivi.cor",
-    cbu: "0000003100052227123206",
+    alias: "lean.maga",
+    cbu: "0000003100052227''3206",
     nombreCuenta: "",
     mensajePersonalizado: "",
   },
 
   // 📝 CONFIRMACIÓN DE ASISTENCIA (RSVP)
   rsvp: {
-    fechaLimite: "18 de Febrero",
+    fechaLimite: "20 Mayo",
     // Fecha límite en formato ISO para validaciones
-    fechaLimiteISO: "2026-02-18",
+    fechaLimiteISO: "2026-05-20",
     mensajeCierre: "¡Gracias por confirmar tu asistencia!",
     mostrarDietaryRestrictions: true, // Mostrar campo de restricciones alimentarias
   },
@@ -95,8 +95,7 @@ export const clientConfig = {
     descripcion:
       "Preferentemente, se invita a usar prendas, accesorios, maquillaje o peinados inspirados en la temática Alicia en el País de las Maravillas.",
     coloresRestringidos: ["Naturales", "Champagne"],
-    mensajeRestriccion:
-      "s",
+    mensajeRestriccion: "s",
 
     // Categorías de vestimenta con sugerencias
     categorias: {
@@ -145,7 +144,7 @@ export const clientConfig = {
 
   // 🔐 CONFIGURACIÓN DE ADMINISTRADOR
   admin: {
-    password: "Ivonne123", // ⚠️ CAMBIAR ESTO en producción
+    password: "Zafiro1234", // ⚠️ CAMBIAR ESTO en producción
     dashboardUrl: "/admin",
   },
 
@@ -164,8 +163,8 @@ export const clientConfig = {
 
   // 🌐 CONFIGURACIÓN DEL SITIO
   sitio: {
-    nombre: "Invitación de 12 Años",
-    descripcion: "Una celebración mágica",
+    nombre: "Invitación de Baby Shower",
+    descripcion: "Una celebración especial",
     url:
       process.env.NEXT_PUBLIC_PRODUCTION_URL ||
       "https://invitacion-quinceañera.vercel.app",
@@ -205,7 +204,7 @@ export const getMapUrls = () => {
     google:
       googleMapsUrl ||
       `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-        direccionCompleta
+        direccionCompleta,
       )}`,
     waze:
       wazeUrl ||

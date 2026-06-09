@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import HeroSection from "@/components/HeroSection";
 import CountdownSection from "@/components/CountdownSection";
 import EventDetails from "@/components/EventDetails";
-import DressCode from "@/components/DressCode";
 import LocationSection from "@/components/LocationSection";
 import RSVPSection from "@/components/RSVPSection";
 import Footer from "@/components/Footer";
@@ -39,7 +38,6 @@ const MainContent = () => {
             <HeroSection />
             <CountdownSection />
             <EventDetails />
-            <DressCode />
             <LocationSection />
             <RSVPSection />
             <Footer />

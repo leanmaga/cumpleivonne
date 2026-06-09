@@ -1,91 +1,89 @@
 // config/theme.config.js
 /**
- * 🎨 CONFIGURACIÓN DE TEMA Y COLORES
- * Cambia aquí todos los colores para personalizar la invitación
+ * 🎨 CONFIGURACIÓN DE TEMA Y COLORES (BABY SHOWER - ROSA PASTEL)
  */
 
 export const themeConfig = {
   // 🌈 COLORES PRINCIPALES
   colores: {
-    // Color primario (azul océano)
+    // 🌸 Primario (rosa pastel)
     primario: {
-      50: "#e6f7ff", // Celeste muy muy claro
-      100: "#bae7ff", // Celeste muy claro
-      200: "#91d5ff", // Celeste claro
-      300: "#69c0ff", // Celeste medio claro
-      400: "#40a9ff", // Celeste medio
-      500: "#1890ff", // Color base - Azul océano brillante (franja superior)
-      600: "#096dd9", // Azul océano medio
-      700: "#0050b3", // Azul océano oscuro
-      800: "#003a8c", // Azul profundo
-      900: "#002766", // Azul muy oscuro
+      50: "#fff0f6",
+      100: "#ffd6e7",
+      200: "#ffadd2",
+      300: "#ff85c0",
+      400: "#ff5ca8",
+      500: "#ff85c0", // base
+      600: "#f759ab",
+      700: "#d63384",
+      800: "#b0256a",
+      900: "#7a1e4d",
     },
 
-    // Color secundario (beige/arena) - Perfecto para tema playa
+    // 🎀 Secundario (rosa suave / nude)
     secundario: {
-      50: "#faf8f6", // Beige casi blanco
-      100: "#f4f0eb", // Beige muy claro (arena clara)
-      200: "#ede7dc", // Beige claro
-      300: "#e6ddd0", // Beige medio claro
-      400: "#e1cfc4", // Beige medio (franja 3)
-      500: "#d4bfb0", // Color base - Beige arena
-      600: "#c0a999", // Beige oscuro
-      700: "#a38977", // Beige más oscuro
-      800: "#7a6557", // Marrón beige
-      900: "#5a4a3f", // Marrón oscuro
+      50: "#fffafa",
+      100: "#fff0f3",
+      200: "#ffe4e9",
+      300: "#ffd6dd",
+      400: "#ffc2cc",
+      500: "#ffb3c1", // base
+      600: "#ff8fab",
+      700: "#fb6f92",
+      800: "#e05780",
+      900: "#b9375d",
     },
 
-    // Color terciario (turquesa/celeste para acentos)
+    // ✨ Terciario (lavanda pastel)
     terciario: {
-      50: "#e6fffb",
-      100: "#b5f5ec",
-      200: "#87e8de",
-      300: "#5cdbd3", // Turquesa claro (franja 2)
-      400: "#36cfc9", // Turquesa medio
-      500: "#13c2c2", // Color base - Turquesa
-      600: "#08979c", // Turquesa oscuro
-      700: "#006d75", // Verde azulado
-      800: "#00474f", // Verde azulado oscuro
-      900: "#002329", // Verde azulado muy oscuro
+      50: "#f9f0ff",
+      100: "#efdbff",
+      200: "#d3adf7",
+      300: "#b37feb",
+      400: "#9254de",
+      500: "#b37feb", // base
+      600: "#722ed1",
+      700: "#531dab",
+      800: "#391085",
+      900: "#22075e",
     },
 
-    // Colores elegantes (grises/negros)
+    // ⚪ Elegantes (rosados oscuros para contraste)
     elegante: {
-      50: "#f8fafc",
-      100: "#f1f5f9",
-      200: "#e2e8f0",
-      300: "#cbd5e1",
-      400: "#94a3b8",
-      500: "#64748b",
-      600: "#475569",
-      700: "#334155",
-      800: "#1e293b",
-      900: "#0f172a",
-      950: "#020617",
+      50: "#fff1f2",
+      100: "#ffe4e6",
+      200: "#fecdd3",
+      300: "#fda4af",
+      400: "#fb7185",
+      500: "#f43f5e",
+      600: "#e11d48",
+      700: "#be123c",
+      800: "#9f1239",
+      900: "#881337",
+      950: "#4c0519",
     },
 
-    // Colores de acento
-    acento: "#1890ff", // Azul océano
-    acentoSecundario: "#5cdbd3", // Turquesa claro
-    fondo: "#f0f9ff", // Fondo celeste muy claro (cielo/agua)
-    texto: "#002766", // Texto azul muy oscuro
-    textoClaro: "#0050b3", // Texto azul medio
+    // 💖 Acentos globales
+    acento: "#ff85c0",
+    acentoSecundario: "#b37feb",
+    fondo: "#fff0f6",
+    texto: "#7a1e4d",
+    textoClaro: "#d63384",
   },
 
-  // 🎭 CÓDIGO DE VESTIMENTA - Colores restringidos
+  // 🎭 CÓDIGO DE VESTIMENTA
   codigoVestimenta: {
-    coloresRestringidos: ["Azul océano", "Turquesa"],
-    mensajeRestriccion:
-      "",
+    coloresRestringidos: [],
+    mensajeRestriccion: "",
   },
 
   // ✨ EFECTOS Y ANIMACIONES
   efectos: {
     glassMorphism: {
-      background: "rgba(24, 144, 255, 0.15)", // Azul con transparencia
+      background: "rgba(255, 133, 192, 0.15)",
       backdropBlur: "6.1px",
       borderRadius: "16px",
-      border: "1px solid rgba(24, 144, 255, 0.35)", // Borde azul
+      border: "1px solid rgba(255, 133, 192, 0.35)",
     },
     transicion: "0.3s ease",
     duracionAnimacion: "0.8s",
@@ -93,13 +91,13 @@ export const themeConfig = {
 
   // 🔤 TIPOGRAFÍA
   fuentes: {
-    titulo: "var(--font-Emilys_Candy)", // Fuente elegante para títulos
-    cursiva: "var(--font-dancing)", // Fuente decorativa
-    texto: "var(--font-sans)", // Fuente para texto normal
-    especial: "var(--font-Emilys_Candy)", // Fuente especial
+    titulo: "var(--font-Emilys_Candy)",
+    cursiva: "var(--font-dancing)",
+    texto: "var(--font-sans)",
+    especial: "var(--font-Emilys_Candy)",
   },
 
-  // 📐 ESPACIADO Y TAMAÑOS
+  // 📐 ESPACIADO
   espaciado: {
     radius: {
       sm: "0.375rem",
@@ -112,14 +110,12 @@ export const themeConfig = {
 };
 
 /**
- * 🎨 FUNCIÓN HELPER: Obtener color con opacidad
- * Uso: getColorWithOpacity('primario', 500, 0.8)
+ * 🎨 HELPER: Obtener color con opacidad
  */
 export function getColorWithOpacity(categoria, tono, opacidad = 1) {
   const color = themeConfig.colores[categoria]?.[tono];
   if (!color) return null;
 
-  // Convertir hex a rgba si se necesita opacidad
   if (opacidad < 1) {
     const hex = color.replace("#", "");
     const r = parseInt(hex.substring(0, 2), 16);
@@ -132,28 +128,28 @@ export function getColorWithOpacity(categoria, tono, opacidad = 1) {
 }
 
 /**
- * 🎨 FUNCIÓN HELPER: Obtener clase de Tailwind según el color primario
+ * 🎨 HELPER: Clases Tailwind primarias
  */
 export function getPrimaryColorClasses() {
   return {
-    bg: "bg-[#1890ff]", // Azul océano
-    bgHover: "hover:bg-[#096dd9]", // Azul océano más oscuro
-    text: "text-[#1890ff]", // Azul océano
-    border: "border-[#1890ff]", // Azul océano
-    gradient: "from-[#5cdbd3] via-[#1890ff] to-[#e1cfc4]", // Degradado turquesa > azul > arena
-    gradientReverse: "from-[#e1cfc4] via-[#5cdbd3] to-[#1890ff]", // Degradado inverso
+    bg: "bg-[#ff85c0]",
+    bgHover: "hover:bg-[#f759ab]",
+    text: "text-[#ff85c0]",
+    border: "border-[#ff85c0]",
+    gradient: "from-[#ffd6e7] via-[#ff85c0] to-[#ffb3c1]",
+    gradientReverse: "from-[#ffb3c1] via-[#ffd6e7] to-[#ff85c0]",
   };
 }
 
 /**
- * 🎨 FUNCIÓN HELPER: Obtener clases de color secundario (beige/arena)
+ * 🎨 HELPER: Clases secundarias
  */
 export function getSecondaryColorClasses() {
   return {
-    bg: "bg-[#e1cfc4]", // Beige arena
-    bgHover: "hover:bg-[#d4bfb0]", // Beige oscuro
-    text: "text-[#e1cfc4]", // Beige arena
-    border: "border-[#e1cfc4]", // Beige arena
+    bg: "bg-[#ffb3c1]",
+    bgHover: "hover:bg-[#ff8fab]",
+    text: "text-[#ffb3c1]",
+    border: "border-[#ffb3c1]",
   };
 }
 
