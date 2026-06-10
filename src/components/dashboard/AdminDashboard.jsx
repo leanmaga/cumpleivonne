@@ -38,12 +38,13 @@ export default function AdminDashboard() {
   const [filterType, setFilterType] = useState("all"); // Renombrado de filterGuests
 
   // Usar hook centralizado para configuración
-  const { nombre, adminPassword } = useQuinceaneraConfig();
+  const { adminPassword } = useQuinceaneraConfig();
+  const eventName = "Baby Shower";
 
   // Validación de contraseña admin
   if (!adminPassword) {
     console.error(
-      "NEXT_PUBLIC_ADMIN_PASSWORD no está configurado en .env.local"
+      "NEXT_PUBLIC_ADMIN_PASSWORD no está configurado en .env.local",
     );
   }
 
@@ -121,7 +122,7 @@ export default function AdminDashboard() {
   // CORREGIDA: función calculateStats sin referencias a guests
   const calculateStats = (rsvpData, songsData = songs) => {
     const withDietary = rsvpData.filter(
-      (item) => item.dietary_restrictions
+      (item) => item.dietary_restrictions,
     ).length;
     const withMessages = rsvpData.filter((item) => item.message).length;
     const withPhone = rsvpData.filter((item) => item.phone).length;
@@ -273,7 +274,7 @@ export default function AdminDashboard() {
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = `confirmaciones-${nombre.toLowerCase()}-${
+    link.download = `confirmaciones-babyshower-${
       new Date().toISOString().split("T")[0]
     }.csv`;
     link.click();
@@ -311,7 +312,7 @@ export default function AdminDashboard() {
         setShowPassword={setShowPassword}
         handleLogin={handleLogin}
         authError={authError}
-        nombre={nombre}
+        eventName={eventName}
       />
     );
   }
@@ -325,7 +326,7 @@ export default function AdminDashboard() {
               <Crown className="w-6 h-6 sm:w-8 sm:h-8 text-quince-500 flex-shrink-0" />
               <div className="min-w-0">
                 <h1 className="text-lg sm:text-xl font-semibold text-gray-900 truncate">
-                  Admin - {nombre}
+                  Admin - {eventName}
                 </h1>
                 <p className="text-xs sm:text-sm text-gray-600">
                   Gestión de confirmaciones

@@ -39,7 +39,6 @@ const candy = Emilys_Candy({
 });
 
 // ✅ Obtener configuración desde client.config.js
-const { nombre, edad } = clientConfig.quinceañera;
 const { url: siteUrl, idioma, imagenOG } = clientConfig.sitio;
 
 // URLs según el entorno
@@ -61,13 +60,13 @@ export const metadata = {
     title: getSiteTitle(),
     description: getSiteDescription(),
     url: baseUrl,
-    siteName: `12 Años de ${nombre}`,
+    siteName: `Baby Shower`,
     images: [
       {
         url: imagenOG || "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: `Invitación - ${nombre} 12 Años`,
+        alt: "Invitación - Baby Shower",
       },
     ],
     locale: idioma === "es" ? "es_ES" : "en_US",
@@ -121,17 +120,7 @@ export const metadata = {
   manifest: "/favicon_io/site.webmanifest",
 
   // Otros meta tags
-  authors: [{ name: nombre }],
-  keywords: [
-    "12 años",
-    nombre.toLowerCase(),
-   
-    "celebración",
-    "fiesta",
-    "invitación",
-    "mis 12",
-    `${nombre.toLowerCase()} 15`,
-  ],
+  keywords: ["baby shower", "celebración", "fiesta", "invitación"],
   category: "event",
 };
 
@@ -160,17 +149,9 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#d4989d" />
         <meta name="msapplication-TileColor" content="#d4989d" />
 
-        {/* Meta tags de autor y copyright */}
-        <meta name="author" content={nombre} />
-        <meta name="creator" content={nombre} />
-
         {/* Meta tags para dispositivos móviles */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-status-bar-style" content="default" />
-        <meta
-          name="apple-mobile-web-app-title"
-          content={`${nombre} - 12 Años`}
-        />
 
         {/* Meta tag para formato de número de teléfono */}
         <meta name="format-detection" content="telephone=no" />

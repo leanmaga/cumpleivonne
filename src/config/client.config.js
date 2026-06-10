@@ -9,14 +9,14 @@
 export const clientConfig = {
   // 👤 INFORMACIÓN PERSONAL
   quinceañera: {
-    nombre: "Zafiro",
+    nombre: "",
     edad: "",
     apodo: "", // Opcional, ej: 'Eli'
   },
 
   // 📅 INFORMACIÓN DEL EVENTO
   evento: {
-    fecha: "Sábado 14 de Junio",
+    fecha: "Domingo 14 de Junio",
     // ⚠️ IMPORTANTE: Formato de fechaCompleta para countdown (YYYY-MM-DD)
     fechaCompleta: "2026-06-14",
     hora: "18:00",
@@ -61,7 +61,7 @@ export const clientConfig = {
       usuario: "leanmaga08", // Sin @
       url: "https://instagram.com/leanmaga08",
     },
-    hashtag: "#wellcomezafiro", // Déjalo vacío para generarlo automáticamente: #Elizabeth''Años
+    hashtag: "#wellcomebebita", // Déjalo vacío para generarlo automáticamente: #Elizabeth''Años
   },
 
   // 🎁 INFORMACIÓN BANCARIA PARA REGALOS
@@ -75,7 +75,7 @@ export const clientConfig = {
 
   // 📝 CONFIRMACIÓN DE ASISTENCIA (RSVP)
   rsvp: {
-    fechaLimite: "20 Mayo",
+    fechaLimite: "",
     // Fecha límite en formato ISO para validaciones
     fechaLimiteISO: "2026-05-20",
     mensajeCierre: "¡Gracias por confirmar tu asistencia!",
@@ -167,7 +167,7 @@ export const clientConfig = {
     descripcion: "Una celebración especial",
     url:
       process.env.NEXT_PUBLIC_PRODUCTION_URL ||
-      "https://invitacion-quinceañera.vercel.app",
+      "https://invitacion-babyshower.vercel.app",
     idioma: "es",
     imagenOG: "/assets/1.jpg", // Imagen para compartir en redes sociales
   },
@@ -190,8 +190,7 @@ export const clientConfig = {
 
 // Generar hashtag automáticamente
 export const getHashtag = () => {
-  const { nombre, edad } = clientConfig.quinceañera;
-  return clientConfig.redes.hashtag || `#${nombre}${edad}Años`;
+  return clientConfig.redes.hashtag || "#BabyShower";
 };
 
 // Generar URLs de mapas automáticamente
@@ -214,15 +213,13 @@ export const getMapUrls = () => {
 
 // Obtener título completo del sitio
 export const getSiteTitle = () => {
-  const { nombre, edad } = clientConfig.quinceañera;
-  return `${nombre} - Mis ${edad} Años`;
+  return clientConfig.sitio.nombre || "Baby Shower";
 };
 
 // Obtener descripción del sitio
 export const getSiteDescription = () => {
-  const { nombre, edad } = clientConfig.quinceañera;
   const { fecha } = clientConfig.evento;
-  return `Te invito a celebrar mis ${edad} años el ${fecha}. ¡No te lo pierdas!`;
+  return `Te invito a celebrar un Baby Shower el ${fecha}. ¡No te lo pierdas!`;
 };
 
 export default clientConfig;

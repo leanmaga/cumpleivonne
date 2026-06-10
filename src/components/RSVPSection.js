@@ -30,12 +30,12 @@ export default function RSVPSection() {
   const [checkingExisting, setCheckingExisting] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const { nombre, whatsapp, telefono, fechaLimiteRSVP, colores } =
+  const { whatsapp, telefono, fechaLimiteRSVP, colores } =
     useQuinceaneraConfig();
 
   if (!whatsapp) {
     console.error(
-      "❌ NEXT_PUBLIC_WHATSAPP_NUMBER no está configurado en .env.local"
+      "❌ NEXT_PUBLIC_WHATSAPP_NUMBER no está configurado en .env.local",
     );
   }
 
@@ -105,7 +105,7 @@ export default function RSVPSection() {
   };
 
   const formatWhatsAppMessage = (data) => {
-    let message = `🎉 *CONFIRMACIÓN DE ASISTENCIA - ${nombre.toUpperCase()}*\n\n`;
+    let message = `🎉 *CONFIRMACIÓN DE ASISTENCIA - BABY SHOWER*\n\n`;
     message += `👤 *Nombre:* ${data.name}\n`;
     message += `📱 *Teléfono:* ${data.phone || "No proporcionado"}\n`;
 
@@ -114,7 +114,7 @@ export default function RSVPSection() {
     }
 
     if (data.message) {
-      message += `💌 *Mensaje para ${nombre}:* ${data.message}\n`;
+      message += `💌 *Mensaje:* ${data.message}\n`;
     }
 
     message += `\n📅 *Fecha:* ${new Date().toLocaleDateString("es-ES", {
@@ -156,7 +156,7 @@ export default function RSVPSection() {
     } catch (error) {
       console.error("Error submitting RSVP:", error);
       setError(
-        "Hubo un error al guardar la confirmación. El WhatsApp se abrirá de todas formas."
+        "Hubo un error al guardar la confirmación. El WhatsApp se abrirá de todas formas.",
       );
 
       sendToWhatsApp(formData);
@@ -177,7 +177,7 @@ export default function RSVPSection() {
         {/* LAYOUT MÓVIL - Confirmación */}
         <div className="lg:hidden">
           <div
-            className="relative h-screen w-full flex items-center justify-center"
+            className="relative h-screen w-full flex items-center justify-center m-4"
             style={{
               backgroundImage: `url('/assets/1.png')`,
               backgroundSize: "cover",
@@ -224,8 +224,8 @@ export default function RSVPSection() {
                 style={{ color: `${colores.primario[900]}cc` }}
               >
                 {isExisting
-                  ? `Hola ${rsvpData.name}, ya confirmaste tu asistencia para la fiesta de ${nombre}. ¡Te esperamos!`
-                  : `Tu confirmación se envió por WhatsApp. ¡No podemos esperar a celebrar contigo en la fiesta de ${nombre}!`}
+                  ? `Hola ${rsvpData.name}, ya confirmaste tu asistencia. ¡Te esperamos!`
+                  : `Tu confirmación se envió por WhatsApp. ¡No podemos esperar a celebrar contigo!`}
               </p>
 
               {/* Mostrar datos confirmados */}
@@ -327,7 +327,7 @@ export default function RSVPSection() {
             }}
           />
 
-          <div className="relative z-10 h-screen flex items-center">
+          <div className="relative z-10 h-screen flex items-center m-4">
             <div className="w-full h-full">
               <div className="grid lg:grid-cols-2 gap-0 h-full min-h-screen">
                 <div className="flex items-center justify-center h-full min-h-screen lg:min-h-0 px-8">
@@ -365,8 +365,8 @@ export default function RSVPSection() {
                       style={{ color: `${colores.primario[900]}cc` }}
                     >
                       {isExisting
-                        ? `Hola ${rsvpData.name}, ya confirmaste tu asistencia para la fiesta de ${nombre}. ¡Te esperamos!`
-                        : `Tu confirmación se envió por WhatsApp. ¡No podemos esperar a celebrar contigo en la fiesta de ${nombre}!`}
+                        ? `Hola ${rsvpData.name}, ya confirmaste tu asistencia. ¡Te esperamos!`
+                        : `Tu confirmación se envió por WhatsApp. ¡No podemos esperar a celebrar contigo!`}
                     </p>
 
                     <button
@@ -411,7 +411,7 @@ export default function RSVPSection() {
             {/* FRONT: Imagen con botón */}
             <div className="rsvp-flip-card-front">
               <div
-                className="relative h-screen w-full flex items-center justify-center"
+                className="relative h-screen w-full flex items-center justify-center m-4"
                 style={{
                   backgroundImage: `url('/assets/1.png')`,
                   backgroundSize: "cover",
@@ -448,21 +448,6 @@ export default function RSVPSection() {
                     <br />
                     Asistencia
                   </h2>
-
-                  <p
-                    className="text-lg mb-12 font-medium drop-shadow-lg"
-                    style={{ color: `${colores.primario[100]}e6` }}
-                  >
-                    antes del{" "}
-                    <span
-                      className="font-bold"
-                      style={{ color: colores.primario[200] }}
-                    >
-                      {fechaLimiteRSVP.split(",")[0]}
-                    </span>
-                    <br />
-                    para que podamos preparar la fiesta perfecta de {nombre}
-                  </p>
 
                   <button
                     onClick={() => setIsFlipped(true)}
@@ -625,7 +610,7 @@ export default function RSVPSection() {
                             className="w-4 h-4"
                             style={{ color: colores.primario[600] }}
                           />
-                          Mensaje para {nombre}
+                          Mensaje para los futuros papás
                         </label>
                         <textarea
                           name="message"
@@ -638,7 +623,7 @@ export default function RSVPSection() {
                             border: `1px solid ${colores.primario[300]}80`,
                             color: colores.primario[900],
                           }}
-                          placeholder={`Comparte tus mejores deseos para ${nombre}...`}
+                          placeholder={`Comparte tus mejores deseos`}
                         />
                       </div>
 
@@ -670,12 +655,6 @@ export default function RSVPSection() {
                           className="text-center text-xs"
                           style={{ color: `${colores.primario[800]}cc` }}
                         >
-                          <Calendar className="inline w-3 h-3 mr-1" />
-                          <strong>Fecha límite:</strong> {fechaLimiteRSVP}
-                          <br />
-                          <Phone className="inline w-3 h-3 mr-1 mt-1" />
-                          Contacto: {telefono}
-                          <br />
                           <span
                             className="text-xs mt-1 block"
                             style={{ color: `${colores.primario[700]}99` }}
@@ -709,7 +688,6 @@ export default function RSVPSection() {
               backgroundRepeat: "no-repeat",
             }}
           />
-          
         </div>
 
         <div
@@ -719,7 +697,7 @@ export default function RSVPSection() {
           }}
         />
 
-        <div className="relative z-10 h-screen flex items-center">
+        <div className="relative z-10 h-screen flex items-center m-4">
           <div className="w-full h-full">
             <div className="grid lg:grid-cols-2 gap-0 h-full min-h-screen">
               <div className="flex items-center justify-center h-full min-h-screen lg:min-h-0 px-8">
@@ -747,20 +725,6 @@ export default function RSVPSection() {
                       <br />
                       Asistencia
                     </h2>
-
-                    <p
-                      className="text-lg max-w-lg mx-auto mb-6 font-medium"
-                      style={{ color: `${colores.primario[900]}cc` }}
-                    >
-                      antes del{" "}
-                      <span
-                        className="font-bold"
-                        style={{ color: colores.primario[700] }}
-                      >
-                        {fechaLimiteRSVP.split(",")[0]}
-                      </span>{" "}
-                      para que podamos preparar la fiesta perfecta de {nombre}
-                    </p>
                   </div>
 
                   <div
@@ -873,9 +837,7 @@ export default function RSVPSection() {
                             className="w-4 h-4"
                             style={{ color: colores.primario[600] }}
                           />
-                          <span className="text-sm">
-                            Mensaje Especial para {nombre}
-                          </span>
+                          <span className="text-sm">Mensaje Especial</span>
                         </label>
                         <textarea
                           name="message"
@@ -888,7 +850,7 @@ export default function RSVPSection() {
                             border: `1px solid ${colores.primario[300]}80`,
                             color: colores.primario[900],
                           }}
-                          placeholder={`Comparte tus mejores deseos para ${nombre}...`}
+                          placeholder={`Comparte tus mejores deseos`}
                         />
                       </div>
 
@@ -928,12 +890,6 @@ export default function RSVPSection() {
                           className="text-center text-xs"
                           style={{ color: `${colores.primario[800]}cc` }}
                         >
-                          <Calendar className="inline w-3 h-3 mr-1" />
-                          <strong>Fecha límite:</strong> {fechaLimiteRSVP}
-                          <br />
-                          <Phone className="inline w-3 h-3 mr-1 mt-1" />
-                          Contacto: {telefono}
-                          <br />
                           <span
                             className="text-xs mt-1 block"
                             style={{ color: `${colores.primario[700]}99` }}

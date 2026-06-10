@@ -10,7 +10,7 @@ export default function AdminLogin({
   handleLogin,
   setPassword,
   setShowPassword,
-  nombre,
+  eventName,
 }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-quince-50 to-gold-50 flex items-center justify-center p-4">
@@ -24,7 +24,7 @@ export default function AdminLogin({
           <h1 className="text-2xl font-bold text-gray-900 mb-2">
             Panel de Administración
           </h1>
-          <p className="text-gray-600">{nombre} - Acceso Restringido</p>
+          <p className="text-gray-600">{eventName} - Acceso Restringido</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-6">

@@ -131,7 +131,7 @@ const SmallBubbles = ({ count = 8, colores }) => {
 };
 
 export default function HeroSection() {
-  const { nombre, edad, colores } = useQuinceaneraConfig();
+  const { colores } = useQuinceaneraConfig();
 
   // Estilos para los textos principales
   const titleStyles = {
@@ -198,7 +198,7 @@ export default function HeroSection() {
           className="mb-8 relative"
         >
           {/* Contenedor del nombre */}
-          <div className="relative">
+          <div className="relative pb-4">
             <motion.h1
               className={titleStyles.className}
               style={titleStyles.style}
@@ -215,102 +215,17 @@ export default function HeroSection() {
                 ease: "easeInOut",
               }}
             >
-              {nombre}
+              Baby Shower
             </motion.h1>
-          </div>
-
-          {/* Sección con número 15 entre líneas */}
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div
-              className="h-px w-24"
-              style={{
-                background: `linear-gradient(to right, transparent, ${colores.primario[400]}, transparent)`,
-              }}
-            />
-
-            {/* Número 15 con efectos especiales */}
-            <motion.div
-              className="relative"
-              animate={{
-                scale: [1, 1.1, 1],
-                rotate: [0, 5, -5, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
+            <motion.p
+              className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mt-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
             >
-              <motion.span
-                className={titleStyles.className}
-                style={titleStyles.style}
-                animate={{
-                  textShadow: [
-                    `0 0 20px ${colores.primario[400]}, 0 0 40px ${colores.primario[500]}, 0 0 60px ${colores.terciario[400]}, 2px 2px 8px rgba(0,0,0,0.8)`,
-                    `0 0 30px ${colores.primario[400]}, 0 0 50px ${colores.primario[500]}, 0 0 70px ${colores.terciario[400]}, 2px 2px 8px rgba(0,0,0,0.8)`,
-                  ],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                {edad}
-              </motion.span>
-
-              {/* Burbujas alrededor del número */}
-              <SmallBubbles count={8} colores={colores} />
-            </motion.div>
-
-            <div
-              className="h-px w-24"
-              style={{
-                background: `linear-gradient(to right, transparent, ${colores.primario[400]}, transparent)`,
-              }}
-            />
+              Una celebración para recibir al bebé con amor y familia.
+            </motion.p>
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-8 relative"
-        >
-          {/* "AÑOS" con los mismos estilos que el nombre */}
-          <motion.h1
-            className={titleStyles.className}
-            style={titleStyles.style}
-            animate={{
-              scale: [1, 1.02, 1],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            Años
-          </motion.h1>
-
-          <motion.p
-            className="text-xl md:text-2xl font-light relative z-10"
-            style={{
-              color: colores.primario[100],
-              textShadow: `2px 2px 4px rgba(0,0,0,0.8), 0 0 15px ${colores.primario[400]}`,
-            }}
-            animate={{
-              opacity: [0.8, 1, 0.8],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            Acompañanos a celebrar bajo del mar
-          </motion.p>
         </motion.div>
       </div>
 

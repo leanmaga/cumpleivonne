@@ -55,13 +55,7 @@ const NavBubbles = ({ count = 8 }) => {
           }}
           animate={{
             y: [-10, -200],
-            x: [
-              0,
-              bubble.wobble,
-              -bubble.wobble * 0.8,
-              bubble.wobble * 0.5,
-              0,
-            ],
+            x: [0, bubble.wobble, -bubble.wobble * 0.8, bubble.wobble * 0.5, 0],
             opacity: [0, 0.9, 0.9, 0.7, 0],
             scale: [0.3, 1, 1, 0.6, 0.2],
           }}
@@ -83,7 +77,7 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [particles, setParticles] = useState([]);
 
-  const { nombre, colores } = useQuinceaneraConfig();
+  const { colores } = useQuinceaneraConfig();
 
   // Generar partículas
   useEffect(() => {
@@ -260,7 +254,7 @@ export default function Navigation() {
                   backgroundClip: "text",
                 }}
               >
-                {nombre}
+                Baby Shower
               </span>
             </motion.div>
 

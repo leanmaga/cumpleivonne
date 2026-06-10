@@ -135,15 +135,8 @@ export default function Footer() {
   const [particles, setParticles] = useState([]);
 
   // ✅ Usar configuración centralizada
-  const {
-    nombre,
-    whatsapp,
-    fechaEvento,
-    horaEvento,
-    lugar,
-    direccion,
-    colores,
-  } = useQuinceaneraConfig();
+  const { whatsapp, fechaEvento, horaEvento, lugar, direccion, colores } =
+    useQuinceaneraConfig();
 
   // Solo ejecutar en el cliente
   useEffect(() => {
@@ -163,8 +156,8 @@ export default function Footer() {
 
   const whatsappLink = `https://wa.me/${whatsapp.replace(
     /[^0-9]/g,
-    ""
-  )}?text=Hola! Te escribo por la invitación de los 12 años de ${nombre}`;
+    "",
+  )}?text=Hola! Te escribo por la invitación del Baby Shower`;
 
   if (!mounted) return null;
 
@@ -240,7 +233,7 @@ export default function Footer() {
               backgroundClip: "text",
             }}
           >
-            {nombre}
+            Baby Shower
           </h2>
 
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium">
@@ -350,7 +343,7 @@ export default function Footer() {
               style={{ color: colores.primario[400] }}
             />
             <span>
-              para {nombre} por{" "}
+              para los futuros papás por{" "}
               <a
                 href="https://patagoniascript.vercel.app/"
                 target="_blank"

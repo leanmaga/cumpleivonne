@@ -1,7 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Calendar, Clock, MapPin, Sparkles, Crown, Copy, Check, Star } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  MapPin,
+  Sparkles,
+  Crown,
+  Copy,
+  Check,
+  Star,
+} from "lucide-react";
 import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 
 import { motion } from "framer-motion";
@@ -135,8 +144,15 @@ export default function DelicateEventDetails() {
   const [particles, setParticles] = useState([]);
 
   // ✅ Usar configuración centralizada - INCLUIR ALIAS
-  const { fechaEvento, horaEvento, lugar, direccion, colores, alias, mostrarRegalos } =
-    useQuinceaneraConfig();
+  const {
+    fechaEvento,
+    horaEvento,
+    lugar,
+    direccion,
+    colores,
+    alias,
+    mostrarRegalos,
+  } = useQuinceaneraConfig();
 
   // Generar partículas flotantes
   useEffect(() => {
@@ -217,7 +233,8 @@ export default function DelicateEventDetails() {
         }
 
         .details-particle-gentle {
-          animation: details-particle-gentle var(--duration) ease-in-out infinite;
+          animation: details-particle-gentle var(--duration) ease-in-out
+            infinite;
           animation-delay: var(--delay);
         }
 
@@ -403,9 +420,7 @@ export default function DelicateEventDetails() {
 
                 {/* Contenido */}
                 <div className="text-center space-y-2">
-                  <p
-                    className="text-base font-medium text-gray-200"
-                  >
+                  <p className="text-base font-medium text-gray-200">
                     {detail.value}
                   </p>
 
@@ -428,7 +443,8 @@ export default function DelicateEventDetails() {
 
                 {/* Efectos hover sutiles */}
                 {hoveredCard === index && (
-                  <div className="absolute inset-0 rounded-2xl pointer-events-none"
+                  <div
+                    className="absolute inset-0 rounded-2xl pointer-events-none"
                     style={{
                       background: `linear-gradient(135deg, ${colores.primario[400]}20, ${colores.terciario[400]}20)`,
                     }}
@@ -445,76 +461,6 @@ export default function DelicateEventDetails() {
             );
           })}
         </div>
-
-        {/* Sección de Alias */}
-        {mostrarRegalos && alias && (
-          <div className="mt-12 details-fade-in-up" style={{ animationDelay: "0.3s" }}>
-            <div className="glass-card-dark rounded-2xl p-8 shadow-xl">
-              <div className="text-center">
-                <div className="relative inline-block mb-4">
-                  <div
-                    className="absolute inset-0 blur-xl opacity-50"
-                    style={{ backgroundColor: `${colores.primario[400]}66` }}
-                  />
-                  <Sparkles
-                    className="relative w-8 h-8 mx-auto"
-                    style={{ color: colores.primario[400] }}
-                  />
-                </div>
-
-                <h3
-                  className="font-serif text-2xl font-semibold mb-3"
-                  style={{ color: colores.primario[300] }}
-                >
-                  Si querés sorprenderme
-                </h3>
-                
-                <p className="text-base mb-6 max-w-md mx-auto text-gray-300">
-                  Tu presencia es el mejor regalo, pero si deseás hacerme un presente, también podés hacerlo de esta forma:
-                </p>
-
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
-                  <div
-                    className="flex-1 w-full px-6 py-4 rounded-xl font-mono text-lg font-semibold"
-                    style={{
-                      background: `linear-gradient(to right, ${colores.primario[400]}33, ${colores.terciario[400]}33)`,
-                      color: colores.primario[300],
-                      border: `1px solid ${colores.primario[400]}66`,
-                    }}
-                  >
-                    {alias}
-                  </div>
-
-                  <button
-                    onClick={handleCopyAlias}
-                    className="p-4 rounded-xl transition-all duration-300 hover:scale-110 shadow-lg"
-                    style={{
-                      background: copied
-                        ? `linear-gradient(to right, ${colores.primario[400]}, ${colores.terciario[400]})`
-                        : `linear-gradient(to right, ${colores.primario[500]}, ${colores.terciario[500]})`,
-                    }}
-                    title="Copiar alias"
-                  >
-                    {copied ? (
-                      <Check className="w-6 h-6 text-white" />
-                    ) : (
-                      <Copy className="w-6 h-6 text-white" />
-                    )}
-                  </button>
-                </div>
-
-                {copied && (
-                  <p
-                    className="text-base mt-4 animate-pulse font-medium"
-                    style={{ color: colores.primario[400] }}
-                  >
-                    ✨ ¡Alias copiado al portapapeles!
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );
