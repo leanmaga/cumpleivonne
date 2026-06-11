@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Crown } from "lucide-react";
 import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 
-// Componente de burbujas submarinas
 const SeaBubbles = ({ count = 15, colores }) => {
   const [bubbles, setBubbles] = useState([]);
 
@@ -61,7 +60,6 @@ const SeaBubbles = ({ count = 15, colores }) => {
   );
 };
 
-// Componente de burbujas más pequeñas
 const SmallBubbles = ({ count = 8, colores }) => {
   const [particles, setParticles] = useState([]);
 
@@ -126,7 +124,7 @@ export default function HeroSection() {
   const { colores } = useQuinceaneraConfig();
 
   const titleStyles = {
-    className: "text-6xl md:text-8xl lg:text-9xl font-bold mb-4 relative z-10",
+    className: "text-6xl md:text-8xl lg:text-9xl font-bold relative z-10",
     style: {
       fontFamily: "var(--font-Emilys_Candy)",
       color: colores.primario[200],
@@ -137,11 +135,9 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      // ✅ overflow-x-hidden en lugar de overflow-hidden para no cortar las letras L y E laterales
-      className="min-h-screen flex items-center justify-center relative overflow-x-hidden"
+      // ✅ flex-col justify-between para título arriba y subtítulo abajo
+      className="min-h-screen flex flex-col justify-between relative overflow-x-hidden"
     >
-      {/* Mobile: tapiz2.png */}
-      {/* Mobile: tapiz2.png */}
       {/* Mobile: mobile.png */}
       <div
         className="absolute inset-0 md:hidden"
@@ -158,10 +154,10 @@ export default function HeroSection() {
         className="absolute inset-0 hidden md:block"
         style={{
           backgroundImage: `url('/assets/tapiz2.png')`,
-          backgroundSize: "contain", // ✅ portrait en pantalla landscape → contain para no cortar
+          backgroundSize: "contain",
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
-          backgroundColor: "#1a0a0a", // ✅ rellena los costados que sobran
+          backgroundColor: "#1a0a0a",
           mixBlendMode: "multiply",
         }}
       />
@@ -184,43 +180,40 @@ export default function HeroSection() {
       <SeaBubbles count={20} colores={colores} />
       <SmallBubbles count={15} colores={colores} />
 
-      <div className="text-center z-10 px-4 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-8 relative"
+      {/* ✅ TÍTULO ARRIBA */}
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center z-10 px-4 pt-16 relative"
+      >
+        <motion.h1
+          className={titleStyles.className}
+          style={titleStyles.style}
+          animate={{
+            scale: [1, 1.05, 1],
+            textShadow: [
+              `0 0 20px ${colores.primario[400]}, 0 0 40px ${colores.primario[500]}, 0 0 60px ${colores.terciario[400]}, 2px 2px 8px rgba(0,0,0,0.8)`,
+              `0 0 30px ${colores.primario[400]}, 0 0 50px ${colores.primario[500]}, 0 0 70px ${colores.terciario[400]}, 2px 2px 8px rgba(0,0,0,0.8)`,
+            ],
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         >
-          <div className="relative pb-4">
-            <motion.h1
-              className={titleStyles.className}
-              style={titleStyles.style}
-              animate={{
-                scale: [1, 1.05, 1],
-                textShadow: [
-                  `0 0 20px ${colores.primario[400]}, 0 0 40px ${colores.primario[500]}, 0 0 60px ${colores.terciario[400]}, 2px 2px 8px rgba(0,0,0,0.8)`,
-                  `0 0 30px ${colores.primario[400]}, 0 0 50px ${colores.primario[500]}, 0 0 70px ${colores.terciario[400]}, 2px 2px 8px rgba(0,0,0,0.8)`,
-                ],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              Baby Shower
-            </motion.h1>
-            <motion.p
-              className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mt-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-            >
-              Una celebración para recibir al bebé con amor y familia.
-            </motion.p>
-          </div>
-        </motion.div>
-      </div>
+          Baby Shower
+        </motion.h1>
+      </motion.div>
+
+      {/* ✅ SUBTÍTULO ABAJO */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4 }}
+        className="text-center z-10 px-4 pb-8 relative"
+      >
+        <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
+          Una celebración para recibir al bebé con amor y familia.
+        </p>
+      </motion.div>
 
       {/* Luciérnagas decorativas */}
       <motion.div
