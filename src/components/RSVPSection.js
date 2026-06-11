@@ -177,7 +177,7 @@ export default function RSVPSection() {
         {/* LAYOUT MÓVIL - Confirmación */}
         <div className="lg:hidden">
           <div
-            className="relative h-screen w-full flex items-center justify-center m-4"
+            className="relative h-screen w-full flex items-center justify-center "
             style={{
               backgroundImage: `url('/assets/1.png')`,
               backgroundSize: "cover",
@@ -411,7 +411,7 @@ export default function RSVPSection() {
             {/* FRONT: Imagen con botón */}
             <div className="rsvp-flip-card-front">
               <div
-                className="relative h-screen w-full flex items-center justify-center m-4"
+                className="relative h-screen w-full flex items-center justify-center "
                 style={{
                   backgroundImage: `url('/assets/1.png')`,
                   backgroundSize: "cover",
