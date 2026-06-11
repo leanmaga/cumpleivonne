@@ -9,7 +9,6 @@ import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 const navItems = [
   { name: "Inicio", href: "#hero" },
   { name: "Detalles", href: "#details" },
-  { name: "Dress Code", href: "#dresscode" },
   { name: "Ubicación", href: "#location" },
   { name: "RSVP", href: "#rsvp" },
 ];

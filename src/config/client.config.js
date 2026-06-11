@@ -31,11 +31,9 @@ export const clientConfig = {
     provincia: "Buenos Aires",
     pais: "Argentina",
     // URLs de mapas (se generan automáticamente pero puedes personalizarlas)
-    googleMapsUrl: "",
-    wazeUrl: "",
-    // O proporciona URLs personalizadas:
-    // googleMapsUrl: 'https://maps.google.com/?q=...',
-    // wazeUrl: 'https://waze.com/ul?q=...',
+    googleMapsUrl: "https://maps.app.goo.gl/gHUViKgfzdvofGDz9",
+    wazeUrl:
+      "https://ul.waze.com/ul?place=ChIJnW71YNzAvJURSUvNTet3Naw&ll=-34.69103540%2C-58.66435280&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location",
 
     // Imágenes del salón (ubicadas en /public/assets/)
     imagenesSalon: [
