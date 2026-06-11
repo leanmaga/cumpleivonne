@@ -348,6 +348,7 @@ export default function LocationSection() {
         style={{
           backgroundImage: "url(/assets/tapiz2.jpg)",
           backgroundSize: "contain",
+          backgroundAttachment: "fixed",
           backgroundPosition: "center 50%",
           backgroundRepeat: "no-repeat",
           maskImage:
