@@ -190,7 +190,6 @@ export default function Navigation() {
         <div
           className="absolute inset-0 opacity-70"
           style={{
-            backgroundImage: "url(/assets/tapiz2.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center 50%",
             backgroundRepeat: "no-repeat",
@@ -366,7 +365,6 @@ export default function Navigation() {
                 <div
                   className="absolute inset-0 opacity-60"
                   style={{
-                    backgroundImage: "url(/assets/tapiz2.jpg)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",

@@ -200,7 +200,6 @@ export default function CountdownSection() {
       <div
         className="absolute inset-0 opacity-70"
         style={{
-          backgroundImage: "url(/assets/tapiz2.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center 50%",
           backgroundRepeat: "no-repeat",
@@ -390,8 +389,10 @@ export default function CountdownSection() {
         </div>
 
         {/* Countdown cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto mb-8 countdown-slide-in-up"
-          style={{ animationDelay: "0.2s" }}>
+        <div
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto mb-8 countdown-slide-in-up"
+          style={{ animationDelay: "0.2s" }}
+        >
           {Object.entries(timeLeft).map(([unit, value], index) => (
             <div
               key={unit}
@@ -441,9 +442,7 @@ export default function CountdownSection() {
               </div>
 
               {/* Etiqueta */}
-              <div
-                className="text-sm md:text-base font-medium uppercase tracking-wider text-gray-300"
-              >
+              <div className="text-sm md:text-base font-medium uppercase tracking-wider text-gray-300">
                 {timeUnits[unit]}
               </div>
 
@@ -457,8 +456,10 @@ export default function CountdownSection() {
         </div>
 
         {/* Mensaje motivacional */}
-        <div className="glass-card-dark rounded-2xl p-6 max-w-2xl mx-auto countdown-slide-in-up"
-          style={{ animationDelay: "0.4s" }}>
+        <div
+          className="glass-card-dark rounded-2xl p-6 max-w-2xl mx-auto countdown-slide-in-up"
+          style={{ animationDelay: "0.4s" }}
+        >
           <p className="text-lg md:text-xl italic text-gray-300">
             ¡Este día especial está cada vez más cerca!
           </p>

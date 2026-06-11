@@ -346,7 +346,6 @@ export default function LocationSection() {
       <div
         className="absolute inset-0 opacity-70"
         style={{
-          backgroundImage: "url(/assets/tapiz2.jpg)",
           backgroundSize: "contain",
           backgroundAttachment: "fixed",
           backgroundPosition: "center 50%",

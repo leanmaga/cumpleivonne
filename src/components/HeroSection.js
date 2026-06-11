@@ -13,11 +13,11 @@ const SeaBubbles = ({ count = 15, colores }) => {
     const newBubbles = Array.from({ length: count }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
-      y: 100 + Math.random() * 20, // Empiezan desde abajo
-      size: Math.random() * 20 + 10, // Burbujas más grandes
+      y: 100 + Math.random() * 20,
+      size: Math.random() * 20 + 10,
       delay: Math.random() * 5,
-      duration: Math.random() * 4 + 6, // Movimiento más lento
-      wobble: Math.random() * 30 - 15, // Movimiento lateral
+      duration: Math.random() * 4 + 6,
+      wobble: Math.random() * 30 - 15,
     }));
     setBubbles(newBubbles);
   }, [count, colores]);
@@ -41,13 +41,9 @@ const SeaBubbles = ({ count = 15, colores }) => {
               0 2px 4px rgba(0, 0, 0, 0.1)
             `,
           }}
-          initial={{
-            y: 0,
-            opacity: 0,
-            scale: 0.5,
-          }}
+          initial={{ y: 0, opacity: 0, scale: 0.5 }}
           animate={{
-            y: [-20, -window.innerHeight - 100], // Suben hasta salir de la pantalla
+            y: [-20, -window.innerHeight - 100],
             x: [0, bubble.wobble, -bubble.wobble, bubble.wobble * 0.5, 0],
             opacity: [0, 0.8, 0.8, 0.6, 0],
             scale: [0.5, 1, 1, 0.8, 0.3],
@@ -100,11 +96,7 @@ const SmallBubbles = ({ count = 8, colores }) => {
               0 0 6px rgba(255, 255, 255, 0.2)
             `,
           }}
-          initial={{
-            y: 0,
-            opacity: 0,
-            scale: 0.3,
-          }}
+          initial={{ y: 0, opacity: 0, scale: 0.3 }}
           animate={{
             y: [-10, -window.innerHeight - 50],
             x: [
@@ -133,7 +125,6 @@ const SmallBubbles = ({ count = 8, colores }) => {
 export default function HeroSection() {
   const { colores } = useQuinceaneraConfig();
 
-  // Estilos para los textos principales
   const titleStyles = {
     className: "text-6xl md:text-8xl lg:text-9xl font-bold mb-4 relative z-10",
     style: {
@@ -146,33 +137,36 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      // ✅ overflow-x-hidden en lugar de overflow-hidden para no cortar las letras L y E laterales
+      className="min-h-screen flex items-center justify-center relative overflow-x-hidden"
     >
-      {/* Tapiz con opacidad para que se vea sobre el fondo claro */}
-      {/* Mobile: verticalHero.png */}
+      {/* Mobile: tapiz2.png */}
+      {/* Mobile: tapiz2.png */}
+      {/* Mobile: mobile.png */}
       <div
         className="absolute inset-0 md:hidden"
         style={{
-          backgroundImage: `url('/assets/tapiz2.png')`,
+          backgroundImage: `url('/assets/mobile.png')`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
           mixBlendMode: "multiply",
         }}
       />
-      {/* Desktop: tapiz.png */}
+      {/* Desktop: tapiz2.png */}
       <div
         className="absolute inset-0 hidden md:block"
         style={{
-          backgroundImage: `url('/assets/2.png')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage: `url('/assets/tapiz2.png')`,
+          backgroundSize: "contain", // ✅ portrait en pantalla landscape → contain para no cortar
+          backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
+          backgroundColor: "#1a0a0a", // ✅ rellena los costados que sobran
           mixBlendMode: "multiply",
         }}
       />
 
-      {/* Overlay sutil para dar profundidad sin oscurecer demasiado */}
+      {/* Overlay sutil */}
       <div
         className="absolute inset-0"
         style={{
@@ -197,7 +191,6 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
           className="mb-8 relative"
         >
-          {/* Contenedor del nombre */}
           <div className="relative pb-4">
             <motion.h1
               className={titleStyles.className}
@@ -238,11 +231,7 @@ export default function HeroSection() {
           x: [0, 10, -5, 0],
           y: [0, -8, 5, 0],
         }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          delay: 1,
-        }}
+        transition={{ duration: 5, repeat: Infinity, delay: 1 }}
       >
         <div
           className="w-3 h-3 rounded-full"
@@ -261,11 +250,7 @@ export default function HeroSection() {
           x: [0, -15, 8, 0],
           y: [0, 12, -6, 0],
         }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          delay: 2,
-        }}
+        transition={{ duration: 6, repeat: Infinity, delay: 2 }}
       >
         <div
           className="w-2 h-2 rounded-full"
@@ -284,11 +269,7 @@ export default function HeroSection() {
           x: [0, 18, -10, 0],
           y: [0, -12, 8, 0],
         }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          delay: 0.5,
-        }}
+        transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
       >
         <div
           className="w-4 h-4 rounded-full"
