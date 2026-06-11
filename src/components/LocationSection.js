@@ -1,7 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MapPin, Phone, Clock, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Clock,
+  ChevronLeft,
+  ChevronRight,
+  Star,
+} from "lucide-react";
 import Image from "next/image";
 import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 import { useLoading } from "@/components/PageLoader";
@@ -186,7 +193,7 @@ export default function LocationSection() {
 
   const prevSlide = () => {
     setCurrentSlide(
-      (prev) => (prev - 1 + imagenesSalon.length) % imagenesSalon.length
+      (prev) => (prev - 1 + imagenesSalon.length) % imagenesSalon.length,
     );
   };
 
@@ -340,7 +347,7 @@ export default function LocationSection() {
         className="absolute inset-0 opacity-70"
         style={{
           backgroundImage: "url(/assets/tapiz2.jpg)",
-          backgroundSize: "cover",
+          backgroundSize: "contain",
           backgroundPosition: "center 50%",
           backgroundRepeat: "no-repeat",
           maskImage:
@@ -479,7 +486,6 @@ export default function LocationSection() {
                     <p className="text-gray-300">{telefono}</p>
                   </div>
                 </div>
-
               </div>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full">
@@ -523,8 +529,6 @@ export default function LocationSection() {
               </div>
             </div>
           </div>
-
-         
         </div>
       </div>
     </section>
