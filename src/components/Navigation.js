@@ -10,7 +10,6 @@ const navItems = [
   { name: "Inicio", href: "#hero" },
   { name: "Detalles", href: "#details" },
   { name: "Ubicación", href: "#location" },
-  { name: "RSVP", href: "#rsvp" },
 ];
 
 const NavHearts = ({ count = 8 }) => {
