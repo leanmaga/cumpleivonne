@@ -1,25 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  MapPin,
-  Phone,
-  Clock,
-  ChevronLeft,
-  ChevronRight,
-  Star,
-} from "lucide-react";
+import { MapPin, Phone, Heart, Star } from "lucide-react";
 import Image from "next/image";
 import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 import { useLoading } from "@/components/PageLoader";
 
 import { motion } from "framer-motion";
 
-const SeaBubbles = ({ count = 15, colores }) => {
-  const [bubbles, setBubbles] = useState([]);
+const SeaHearts = ({ count = 15, colores }) => {
+  const [hearts, setHearts] = useState([]);
 
   useEffect(() => {
-    const newBubbles = Array.from({ length: count }, (_, i) => ({
+    const newHearts = Array.from({ length: count }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: 100 + Math.random() * 20,
@@ -28,27 +21,18 @@ const SeaBubbles = ({ count = 15, colores }) => {
       duration: Math.random() * 4 + 6,
       wobble: Math.random() * 30 - 15,
     }));
-    setBubbles(newBubbles);
+    setHearts(newHearts);
   }, [count, colores]);
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {bubbles.map((bubble) => (
+      {hearts.map((heart) => (
         <motion.div
-          key={bubble.id}
-          className="absolute rounded-full"
+          key={heart.id}
+          className="absolute"
           style={{
-            left: `${bubble.x}%`,
+            left: `${heart.x}%`,
             bottom: 0,
-            width: `${bubble.size}px`,
-            height: `${bubble.size}px`,
-            background: `radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.1))`,
-            border: `1px solid rgba(255, 255, 255, 0.4)`,
-            boxShadow: `
-              inset -2px -2px 4px rgba(255, 255, 255, 0.6),
-              0 0 8px rgba(255, 255, 255, 0.3),
-              0 2px 4px rgba(0, 0, 0, 0.1)
-            `,
           }}
           initial={{
             y: 0,
@@ -57,24 +41,26 @@ const SeaBubbles = ({ count = 15, colores }) => {
           }}
           animate={{
             y: [-20, -window.innerHeight - 100],
-            x: [0, bubble.wobble, -bubble.wobble, bubble.wobble * 0.5, 0],
+            x: [0, heart.wobble, -heart.wobble, heart.wobble * 0.5, 0],
             opacity: [0, 0.8, 0.8, 0.6, 0],
             scale: [0.5, 1, 1, 0.8, 0.3],
           }}
           transition={{
-            duration: bubble.duration,
-            delay: bubble.delay,
+            duration: heart.duration,
+            delay: heart.delay,
             repeat: Infinity,
             ease: "easeOut",
             times: [0, 0.1, 0.5, 0.8, 1],
           }}
-        />
+        >
+          <Heart size={heart.size} className="text-red-400 fill-red-400" />
+        </motion.div>
       ))}
     </div>
   );
 };
 
-const SmallBubbles = ({ count = 8, colores }) => {
+const SmallHearts = ({ count = 8, colores }) => {
   const [particles, setParticles] = useState([]);
 
   useEffect(() => {
@@ -95,18 +81,10 @@ const SmallBubbles = ({ count = 8, colores }) => {
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full"
+          className="absolute"
           style={{
             left: `${particle.x}%`,
             bottom: 0,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
-            background: `radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4) 35%, rgba(255, 255, 255, 0.1))`,
-            border: `0.5px solid rgba(255, 255, 255, 0.5)`,
-            boxShadow: `
-              inset -1px -1px 2px rgba(255, 255, 255, 0.7),
-              0 0 6px rgba(255, 255, 255, 0.2)
-            `,
           }}
           initial={{
             y: 0,
@@ -132,7 +110,9 @@ const SmallBubbles = ({ count = 8, colores }) => {
             ease: "easeOut",
             times: [0, 0.1, 0.5, 0.8, 1],
           }}
-        />
+        >
+          <Heart size={particle.size} className="text-pink-400 fill-pink-400" />
+        </motion.div>
       ))}
     </div>
   );
@@ -204,7 +184,7 @@ export default function LocationSection() {
   return (
     <section
       id="location"
-      className="py-20 min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white"
+      className="py-20 h-auto flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white"
     >
       <style jsx>{`
         @keyframes location-particle-gentle {
@@ -380,8 +360,8 @@ export default function LocationSection() {
         ))}
       </div>
 
-      <SeaBubbles count={20} colores={colores} />
-      <SmallBubbles count={15} colores={colores} />
+      <SeaHearts count={20} colores={colores} />
+      <SmallHearts count={15} colores={colores} />
 
       {/* Overlay de gradiente sutil */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />

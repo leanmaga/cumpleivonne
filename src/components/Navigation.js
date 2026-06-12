@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Music, Star } from "lucide-react";
+import { Menu, X, Music, Star, Heart } from "lucide-react";
 import MusicPlayer from "./MusicPlayer";
 import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 
@@ -13,11 +13,11 @@ const navItems = [
   { name: "RSVP", href: "#rsvp" },
 ];
 
-const NavBubbles = ({ count = 8 }) => {
-  const [bubbles, setBubbles] = useState([]);
+const NavHearts = ({ count = 8 }) => {
+  const [hearts, setHearts] = useState([]);
 
   useEffect(() => {
-    const newBubbles = Array.from({ length: count }, (_, i) => ({
+    const newHearts = Array.from({ length: count }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: 100 + Math.random() * 10,
@@ -26,26 +26,18 @@ const NavBubbles = ({ count = 8 }) => {
       duration: Math.random() * 5 + 4,
       wobble: Math.random() * 20 - 10,
     }));
-    setBubbles(newBubbles);
+    setHearts(newHearts);
   }, [count]);
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {bubbles.map((bubble) => (
+      {hearts.map((heart) => (
         <motion.div
-          key={bubble.id}
-          className="absolute rounded-full"
+          key={heart.id}
+          className="absolute"
           style={{
-            left: `${bubble.x}%`,
+            left: `${heart.x}%`,
             bottom: 0,
-            width: `${bubble.size}px`,
-            height: `${bubble.size}px`,
-            background: `radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4) 35%, rgba(255, 255, 255, 0.1))`,
-            border: `0.5px solid rgba(255, 255, 255, 0.5)`,
-            boxShadow: `
-              inset -1px -1px 2px rgba(255, 255, 255, 0.7),
-              0 0 6px rgba(255, 255, 255, 0.2)
-            `,
           }}
           initial={{
             y: 0,
@@ -54,18 +46,24 @@ const NavBubbles = ({ count = 8 }) => {
           }}
           animate={{
             y: [-10, -200],
-            x: [0, bubble.wobble, -bubble.wobble * 0.8, bubble.wobble * 0.5, 0],
+            x: [0, heart.wobble, -heart.wobble * 0.8, heart.wobble * 0.5, 0],
             opacity: [0, 0.9, 0.9, 0.7, 0],
             scale: [0.3, 1, 1, 0.6, 0.2],
           }}
           transition={{
-            duration: bubble.duration,
-            delay: bubble.delay,
+            duration: heart.duration,
+            delay: heart.delay,
             repeat: Infinity,
             ease: "easeOut",
             times: [0, 0.1, 0.5, 0.8, 1],
           }}
-        />
+        >
+          <Heart
+            size={heart.size}
+            strokeWidth={1}
+            className="text-pink-400 fill-pink-400"
+          />
+        </motion.div>
       ))}
     </div>
   );
@@ -223,8 +221,8 @@ export default function Navigation() {
           ))}
         </div>
 
-        {/* Burbujas */}
-        <NavBubbles count={8} />
+        {/* Corazones */}
+        <NavHearts count={8} />
 
         {/* Overlay de gradiente sutil */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent pointer-events-none" />

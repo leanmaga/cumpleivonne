@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Crown } from "lucide-react";
+import { Heart } from "lucide-react";
 import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 
-const SeaBubbles = ({ count = 15, colores }) => {
-  const [bubbles, setBubbles] = useState([]);
+const SeaHearts = ({ count = 15, colores }) => {
+  const [hearts, setHearts] = useState([]);
 
   useEffect(() => {
-    const newBubbles = Array.from({ length: count }, (_, i) => ({
+    const newHearts = Array.from({ length: count }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: 100 + Math.random() * 20,
@@ -18,49 +18,46 @@ const SeaBubbles = ({ count = 15, colores }) => {
       duration: Math.random() * 4 + 6,
       wobble: Math.random() * 30 - 15,
     }));
-    setBubbles(newBubbles);
+    setHearts(newHearts);
   }, [count, colores]);
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {bubbles.map((bubble) => (
+      {hearts.map((heart) => (
         <motion.div
-          key={bubble.id}
-          className="absolute rounded-full"
+          key={heart.id}
+          className="absolute"
           style={{
-            left: `${bubble.x}%`,
+            left: `${heart.x}%`,
             bottom: 0,
-            width: `${bubble.size}px`,
-            height: `${bubble.size}px`,
-            background: `radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.1))`,
-            border: `1px solid rgba(255, 255, 255, 0.4)`,
-            boxShadow: `
-              inset -2px -2px 4px rgba(255, 255, 255, 0.6),
-              0 0 8px rgba(255, 255, 255, 0.3),
-              0 2px 4px rgba(0, 0, 0, 0.1)
-            `,
           }}
           initial={{ y: 0, opacity: 0, scale: 0.5 }}
           animate={{
             y: [-20, -window.innerHeight - 100],
-            x: [0, bubble.wobble, -bubble.wobble, bubble.wobble * 0.5, 0],
+            x: [0, heart.wobble, -heart.wobble, heart.wobble * 0.5, 0],
             opacity: [0, 0.8, 0.8, 0.6, 0],
             scale: [0.5, 1, 1, 0.8, 0.3],
           }}
           transition={{
-            duration: bubble.duration,
-            delay: bubble.delay,
+            duration: heart.duration,
+            delay: heart.delay,
             repeat: Infinity,
             ease: "easeOut",
             times: [0, 0.1, 0.5, 0.8, 1],
           }}
-        />
+        >
+          <Heart
+            size={heart.size}
+            strokeWidth={1}
+            className="text-red-400 fill-red-400"
+          />
+        </motion.div>
       ))}
     </div>
   );
 };
 
-const SmallBubbles = ({ count = 8, colores }) => {
+const SmallHearts = ({ count = 8, colores }) => {
   const [particles, setParticles] = useState([]);
 
   useEffect(() => {
@@ -81,18 +78,10 @@ const SmallBubbles = ({ count = 8, colores }) => {
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full"
+          className="absolute"
           style={{
             left: `${particle.x}%`,
             bottom: 0,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
-            background: `radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4) 35%, rgba(255, 255, 255, 0.1))`,
-            border: `0.5px solid rgba(255, 255, 255, 0.5)`,
-            boxShadow: `
-              inset -1px -1px 2px rgba(255, 255, 255, 0.7),
-              0 0 6px rgba(255, 255, 255, 0.2)
-            `,
           }}
           initial={{ y: 0, opacity: 0, scale: 0.3 }}
           animate={{
@@ -114,7 +103,13 @@ const SmallBubbles = ({ count = 8, colores }) => {
             ease: "easeOut",
             times: [0, 0.1, 0.5, 0.8, 1],
           }}
-        />
+        >
+          <Heart
+            size={particle.size}
+            strokeWidth={1}
+            className="text-pink-400 fill-pink-400"
+          />
+        </motion.div>
       ))}
     </div>
   );
@@ -135,8 +130,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      // ✅ flex-col justify-between para título arriba y subtítulo abajo
-      className="min-h-screen flex flex-col justify-between relative overflow-x-hidden"
+      className="flex flex-col justify-between relative w-full aspect-[852/1846] md:aspect-[1086/1448]"
     >
       {/* Mobile: mobile.png */}
       <div
@@ -154,7 +148,7 @@ export default function HeroSection() {
         className="absolute inset-0 hidden md:block"
         style={{
           backgroundImage: `url('/assets/tapiz2.png')`,
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
           backgroundColor: "#1a0a0a",
@@ -177,43 +171,8 @@ export default function HeroSection() {
         }}
       />
 
-      <SeaBubbles count={20} colores={colores} />
-      <SmallBubbles count={15} colores={colores} />
-
-      {/* ✅ TÍTULO ARRIBA */}
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-center z-10 px-4 pt-16 relative"
-      >
-        <motion.h1
-          className={titleStyles.className}
-          style={titleStyles.style}
-          animate={{
-            scale: [1, 1.05, 1],
-            textShadow: [
-              `0 0 20px ${colores.primario[400]}, 0 0 40px ${colores.primario[500]}, 0 0 60px ${colores.terciario[400]}, 2px 2px 8px rgba(0,0,0,0.8)`,
-              `0 0 30px ${colores.primario[400]}, 0 0 50px ${colores.primario[500]}, 0 0 70px ${colores.terciario[400]}, 2px 2px 8px rgba(0,0,0,0.8)`,
-            ],
-          }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        >
-          Baby Shower
-        </motion.h1>
-      </motion.div>
-
-      {/* ✅ SUBTÍTULO ABAJO */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.4 }}
-        className="text-center z-10 px-4 pb-8 relative"
-      >
-        <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
-          Una celebración para recibir al bebé con amor y familia.
-        </p>
-      </motion.div>
+      <SeaHearts count={20} colores={colores} />
+      <SmallHearts count={15} colores={colores} />
 
       {/* Luciérnagas decorativas */}
       <motion.div
