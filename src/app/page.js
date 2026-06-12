@@ -4,7 +4,6 @@ import HeroSection from "@/components/HeroSection";
 import CountdownSection from "@/components/CountdownSection";
 import EventDetails from "@/components/EventDetails";
 import LocationSection from "@/components/LocationSection";
-import RSVPSection from "@/components/RSVPSection";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { AudioProvider } from "@/components/AudioContext";
@@ -39,7 +38,6 @@ const MainContent = () => {
             <CountdownSection />
             <EventDetails />
             <LocationSection />
-            <RSVPSection />
             <Footer />
           </main>
         </motion.div>
